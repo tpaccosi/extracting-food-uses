@@ -1,0 +1,24 @@
+{
+  "model": "/data/domain-task/machamp_setting_cv/machamp/logs/FOOD_FRAMES_fold2/2026.09.28_16.23.21/model.pt",
+  "train_cmd": [
+    "/usr/bin/python3",
+    "train.py",
+    "--dataset_configs",
+    "/data/domain-task/machamp_setting_cv/cv5/fold_2/machamp_config.json",
+    "--device",
+    "0",
+    "--name",
+    "FOOD_FRAMES_fold2"
+  ],
+  "predict_cmd": [
+    "/usr/bin/python3",
+    "predict.py",
+    "/data/domain-task/machamp_setting_cv/machamp/logs/FOOD_FRAMES_fold2/2026.09.28_16.23.21/model.pt",
+    "/data/domain-task/machamp_setting_cv/cv5/fold_2/test.conll",
+    "/data/domain-task/machamp_setting_cv/cv5/fold_2/pred.conll",
+    "--dataset",
+    "FOOD_FRAMES",
+    "--device",
+    "0"
+  ]
+}

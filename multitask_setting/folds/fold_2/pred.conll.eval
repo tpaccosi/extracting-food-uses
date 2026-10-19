@@ -1,0 +1,66 @@
+{
+    "COOKING_CREATION": {
+        "optimization_metrics": "span_f1",
+        "span_f1": {
+            "precision": 0.6966580976863753,
+            "recall": 0.6577669902912622,
+            "span_f1": 0.6766541822721598,
+            "sum": "span_f1"
+        }
+    },
+    "CURE": {
+        "optimization_metrics": "span_f1",
+        "span_f1": {
+            "precision": 0.6960257787325457,
+            "recall": 0.7517401392111369,
+            "span_f1": 0.7228109313998885,
+            "sum": "span_f1"
+        }
+    },
+    "CURE__L1": {
+        "optimization_metrics": "span_f1",
+        "span_f1": {
+            "precision": 0.7115384615384616,
+            "recall": 0.5362318840579711,
+            "span_f1": 0.6115702479338844,
+            "sum": "span_f1"
+        }
+    },
+    "DESCRIPTOR": {
+        "optimization_metrics": "span_f1",
+        "span_f1": {
+            "precision": 0.6142857142857143,
+            "recall": 0.6574923547400612,
+            "span_f1": 0.6351550960118169,
+            "sum": "span_f1"
+        }
+    },
+    "FOOD_ATTRIBUTES": {
+        "optimization_metrics": "span_f1",
+        "span_f1": {
+            "precision": 0.6372549019607843,
+            "recall": 0.7065217391304348,
+            "span_f1": 0.6701030927835051,
+            "sum": "span_f1"
+        }
+    },
+    "FOOD_ENTITY": {
+        "optimization_metrics": "span_f1",
+        "span_f1": {
+            "precision": 0.8755020080321285,
+            "recall": 0.9020689655172414,
+            "span_f1": 0.8885869565217391,
+            "sum": "span_f1"
+        }
+    },
+    "PRESERVING": {
+        "optimization_metrics": "span_f1",
+        "span_f1": {
+            "precision": 0.7491525423728813,
+            "recall": 0.7106109324758842,
+            "span_f1": 0.7293729372937293,
+            "sum": "span_f1"
+        }
+    },
+    "sum": 4.934253444216723
+}
