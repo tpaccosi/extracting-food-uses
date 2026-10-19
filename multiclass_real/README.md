@@ -8,14 +8,6 @@ nested `|` cells are kept whole inside the class).
 To guarantee identical data reading and scoring, the script imports
 `machamp_cv/biocv.py` and `machamp_cv/evaluate_cv.py` directly.
 
-## Expected layout
-```
-project/
-  machamp_cv/          # multi-task code (biocv.py, evaluate_cv.py, compare_cv.py, ...)
-  hf_multiclass/       # this folder
-  gold.tsv
-```
-
 ## Usage
 ```bash
 pip install torch "transformers>=4.40" accelerate
