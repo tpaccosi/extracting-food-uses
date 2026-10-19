@@ -1,10 +1,12 @@
 # Extracting Culinary, Medicinal and Preservation Uses of Food from Historical Texts
 
+> **Note:** The fine-tuned models will be released on Zenodo after the anonymity period. All data, prompts and code needed to reproduce the experiments are already available in this repository.
+
 Data and code for extracting food entities and their uses from historical English texts
 (18th–20th centuries) with a frame-semantic annotation scheme, plus an exploratory
 pipeline for historical Dutch.
 
-> **Note:** The fine-tuned models will be released on the Hugging Face Hub after the anonymity period. All data, prompts and code needed to reproduce the experiments are already available in this repository.
+
 
 The scheme covers six annotation layers:
 
