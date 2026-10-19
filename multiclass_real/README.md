@@ -18,12 +18,9 @@ python3 machamp_cv/make_folds.py --input gold.tsv --k 5 --seed 42 --outdir cv5/
 python3 machamp_cv/run_cv.py --folds-dir cv5/ --machamp-dir machamp/ --device 0
 
 # 3. multiclass (HuggingFace): writes cv5_hf_mc/fold_k/pred.bio.tsv and runs evaluate_cv.py
-python3 hf_multiclass/run_hf_multiclass.py --folds-dir cv5/ --outdir cv5_hf_mc/ \
+python3 multiclass_real/run_hf_multiclass.py --folds-dir cv5/ --outdir cv5_hf_mc/ \
     --model bert-base-multilingual-cased --fp16
 
-# 4. label-by-label comparison (mean F1 over folds and pooled)
-python3 machamp_cv/compare_cv.py cv5/ cv5_hf_mc/
-```
 
 Useful options: `--folds 1 3` (run only some folds), `--skip-existing` (resume after a crash),
 `--keep-checkpoints` (keep the trained models in `fold_k/ckpt/`; by default they are deleted
