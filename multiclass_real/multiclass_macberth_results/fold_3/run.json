@@ -1,0 +1,24 @@
+{
+  "fold": 3,
+  "n_classes": 258,
+  "test_tokens_unseen_class": 53,
+  "best_dev_span_f1": 0.7414760466119984,
+  "test_span_micro_f1": 0.7508495796816311,
+  "config": {
+    "folds_dir": "cv5",
+    "outdir": "cv5_hf_mc",
+    "machamp_cv": "machamp_cv",
+    "model": "emanjavacas/MacBERTh",
+    "folds": "None",
+    "max_len": "512",
+    "epochs": "20",
+    "patience": "5",
+    "lr": "5e-05",
+    "batch_size": "16",
+    "seed": "42",
+    "fp16": "False",
+    "keep_checkpoints": "False",
+    "skip_existing": "False",
+    "oracle": "False"
+  }
+}

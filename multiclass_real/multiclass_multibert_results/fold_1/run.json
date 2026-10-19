@@ -1,0 +1,24 @@
+{
+  "fold": 1,
+  "n_classes": 267,
+  "test_tokens_unseen_class": 25,
+  "best_dev_span_f1": 0.7596638655462185,
+  "test_span_micro_f1": 0.739428380411165,
+  "config": {
+    "folds_dir": "cv5",
+    "outdir": "cv5_hf_mc",
+    "machamp_cv": "machamp_cv",
+    "model": "bert-base-multilingual-cased",
+    "folds": "None",
+    "max_len": "512",
+    "epochs": "20",
+    "patience": "5",
+    "lr": "5e-05",
+    "batch_size": "16",
+    "seed": "42",
+    "fp16": "False",
+    "keep_checkpoints": "False",
+    "skip_existing": "False",
+    "oracle": "False"
+  }
+}
