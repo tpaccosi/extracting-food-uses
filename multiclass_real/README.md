@@ -1,58 +1,61 @@
-# Multiclass (HuggingFace) vs multi-task (MAChamp), stessi fold e stessa valutazione
+# Multiclass (HuggingFace) vs. multi-task (MaChAmp): same folds, same evaluation
 
-Il multi-task resta quello in `machamp_cv/`. Questa cartella aggiunge solo il lato multiclass:
-un transformer HuggingFace con **una classe per token**, cioè la combinazione dei tag di tutti i frame
-(`biocv.joint_label`, identica a `make_multiclass.py`; le celle `|` restano intere).
+The multi-task system lives in `machamp_cv/`. This folder adds the multiclass counterpart:
+a HuggingFace transformer that predicts **one class per token**, i.e. the combination of the
+token's tags across all frames (`biocv.joint_label`, identical to `make_multiclass.py`;
+nested `|` cells are kept whole inside the class).
 
-Per garantire la stessa lettura dei dati e la stessa metrica, lo script importa direttamente
-`machamp_cv/biocv.py` ed `machamp_cv/evaluate_cv.py`.
+To guarantee identical data reading and scoring, the script imports
+`machamp_cv/biocv.py` and `machamp_cv/evaluate_cv.py` directly.
 
-## Struttura attesa
+## Expected layout
 ```
-progetto/
-  machamp_cv/          # il tuo codice (biocv.py, evaluate_cv.py, compare_cv.py, ...)
-  hf_multiclass/       # questa cartella
+project/
+  machamp_cv/          # multi-task code (biocv.py, evaluate_cv.py, compare_cv.py, ...)
+  hf_multiclass/       # this folder
   gold.tsv
 ```
 
-## Passi
+## Usage
 ```bash
 pip install torch "transformers>=4.40" accelerate
 
-# 1. fold (una volta sola, li usano entrambi i sistemi)
+# 1. folds (once; shared by both systems)
 python3 machamp_cv/make_folds.py --input gold.tsv --k 5 --seed 42 --outdir cv5/
 
-# 2. multi-task (MAChamp)
+# 2. multi-task (MaChAmp)
 python3 machamp_cv/run_cv.py --folds-dir cv5/ --machamp-dir machamp/ --device 0
 
-# 3. multiclass (HuggingFace) -- scrive cv5_hf_mc/fold_k/pred.bio.tsv e lancia evaluate_cv.py
+# 3. multiclass (HuggingFace): writes cv5_hf_mc/fold_k/pred.bio.tsv and runs evaluate_cv.py
 python3 hf_multiclass/run_hf_multiclass.py --folds-dir cv5/ --outdir cv5_hf_mc/ \
     --model bert-base-multilingual-cased --fp16
 
-# 4. confronto etichetta per etichetta (F1 media sui fold e pooled)
+# 4. label-by-label comparison (mean F1 over folds and pooled)
 python3 machamp_cv/compare_cv.py cv5/ cv5_hf_mc/
 ```
 
-Opzioni utili: `--folds 1 3` (solo alcuni fold), `--skip-existing` (riprendere dopo un crash),
-`--oracle` (nessun training: vedi sotto).
+Useful options: `--folds 1 3` (run only some folds), `--skip-existing` (resume after a crash),
+`--keep-checkpoints` (keep the trained models in `fold_k/ckpt/`; by default they are deleted
+after prediction), `--oracle` (no training, see below).
 
-## `--oracle`: il tetto dell'approccio multiclass
-Predice la classe gold quando quella combinazione compare nel train del fold, altrimenti `O`.
-Misura quanto si perde **solo** perché alcune combinazioni non sono mai viste in training;
-nessun modello multiclass può superarlo. Sul gold attuale: micro-F1 97.9, macro-F1 96.9.
-Le etichette più penalizzate sono DESCR_Negative (87) e COOKING_CREATION_Food_Product (87).
-Serve anche per provare l'intera catena senza GPU.
+## `--oracle`: upper bound of the multiclass approach
+Predicts the gold class whenever that tag combination occurs in the fold's training set,
+and `O` otherwise. It measures the loss due **only** to combinations never seen in training;
+no multiclass model can exceed it. On our gold standard it reaches 97.9 micro-F1 and
+96.9 macro-F1, with `DESCR_Negative` (87) and `COOKING_CREATION_Food_Product` (87) as the
+most affected labels. It also allows testing the whole pipeline without a GPU.
 
 ## Output (`cv5_hf_mc/`)
-Stesso formato di `cv5/`: `folds.json`, `fold_k/{test,pred}.bio.tsv`, `fold_k/run.json`
-(config, n. classi, F1 dev migliore, F1 test), `cv_summary.tsv`, `cv_per_fold.tsv`,
-`oof.gold.bio.tsv`, `oof.pred.bio.tsv`.
+Same format as `cv5/`: `folds.json`, `fold_k/{test,pred}.bio.tsv`, `fold_k/run.json`
+(configuration, number of classes, best dev F1, test F1), `cv_summary.tsv`,
+`cv_per_fold.tsv`, `oof.gold.bio.tsv`, `oof.pred.bio.tsv`.
 
-## Perché il confronto sia equo
-* **Stesso encoder**: `--model` deve essere il `transformer_model` del `params.json` di MAChamp.
-* **Iperparametri**: allinea `--lr`, `--batch-size`, `--epochs` a quelli di MAChamp; altrimenti
-  la differenza tra i sistemi include anche il tuning.
-* **Selezione dell'epoca**: qui si sceglie sul dev con lo span micro-F1 di tutti i frame; MAChamp
-  combina gli score di dev dei suoi task. È una differenza da dichiarare.
-* **Più seed**: con 5 fold, differenze di 1-2 punti possono essere rumore; meglio 3 seed per sistema,
-  una cartella per seed: `--seed 1 --outdir cv5_hf_mc_s1/`, `--seed 2 --outdir cv5_hf_mc_s2/`…
+## Comparability notes
+* **Encoder**: `--model` should match `transformer_model` in MaChAmp's `params.json`.
+* **Hyperparameters**: `--lr`, `--batch-size` and `--epochs` should match the MaChAmp
+  configuration, so that differences between systems do not reflect tuning.
+* **Model selection**: the multiclass model selects the best epoch by span micro-F1 over
+  all frames on the dev set, whereas MaChAmp combines the dev scores of its tasks.
+* **Seeds**: with 5 folds, differences of 1–2 points may be noise. Running several seeds
+  per system, with one output folder per seed, gives a more reliable comparison:
+  `--seed 1 --outdir cv5_hf_mc_s1/`, `--seed 2 --outdir cv5_hf_mc_s2/`, …
