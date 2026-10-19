@@ -1,7 +1,6 @@
-# Multiclass (HuggingFace)
+# Multiclass
 
-The multi-task system lives in `machamp_cv/`. This folder adds the multiclass counterpart:
-a HuggingFace transformer that predicts **one class per token**, i.e. the combination of the
+This setting takes an HuggingFace transformer that predicts **one class per token**, i.e. the combination of the
 token's tags across all frames (`biocv.joint_label`, identical to `make_multiclass.py`;
 nested `|` cells are kept whole inside the class).
 
