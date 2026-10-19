@@ -1,0 +1,1614 @@
+#FORMAT=WebAnno TSV 3.3
+#T_SP=custom.Span|label
+
+
+#Text=To preserve ORANGES or LEMONS. [18th]
+#Text=
+#Text=Take seville oranges, the largest and roughest you can get, clear of
+#Text=spots, chip them very fine, and put them into water for two days,
+#Text=shifting them twice or three times a day, then boil them whilst they
+#Text=are soft: take and cut them into quarters, and take out all the pippens
+#Text=with a penknife, so weigh them, and to every pound of orange, take a
+#Text=pound and half of loaf sugar; put your sugar into a pan, and to every
+#Text=pound of sugar a pint of water, set it over the fire to melt, and when
+#Text=it boils skim it very well, then put in your oranges; if you would have
+#Text=any of them whole, make a little hole at the top, and take out the meat
+#Text=with a tea spoon, set your oranges over a slow fire to boil, and keep
+#Text=them skimming all the while; keep your oranges as much as you can with
+#Text=the skin downwards; you may cover them with a delf-plate, to bear them
+#Text=down in the boiling; let them boil for three quarters of an hour, then
+#Text=put them into a pot or bason, and let them stand two days covered, then
+#Text=boil them again whilst they look clear, and the syrrup be thick, so put
+#Text=them into a pot, and lie close over them a paper dip'd in brandy, and
+#Text=tie a double paper at the top, set them in a cool place, and keep them
+#Text=for use.
+1-1	0-2	To	_	
+1-2	3-11	preserve	PR\_LU	
+1-3	12-19	ORANGES	FOOD\_LU[1]|PR\_Food\_Patient[2]	
+1-4	20-22	or	_	
+1-5	23-29	LEMONS	FOOD\_LU[3]|PR\_Food\_Patient[4]	
+1-6	29-30	.	_	
+1-7	31-32	[	_	
+1-8	32-36	18th	_	
+1-9	36-37	]	_	
+1-10	39-43	Take	_	
+1-11	44-51	seville	COOKING\_CREATION\_Food\_Material[5]|DESCR\_Neutral[6]	
+1-12	52-59	oranges	COOKING\_CREATION\_Food\_Material[5]|FOOD\_LU[7]	
+1-13	59-60	,	_	
+1-14	61-64	the	_	
+1-15	65-72	largest	DESCR\_Neutral	
+1-16	73-76	and	_	
+1-17	77-85	roughest	DESCR\_Neutral	
+1-18	86-89	you	_	
+1-19	90-93	can	_	
+1-20	94-97	get	_	
+1-21	97-98	,	_	
+1-22	99-104	clear	_	
+1-23	105-107	of	_	
+1-24	108-113	spots	_	
+1-25	113-114	,	_	
+1-26	115-119	chip	COOKING\_CREATION\_LU	
+1-27	120-124	them	_	
+1-28	125-129	very	_	
+1-29	130-134	fine	_	
+1-30	134-135	,	_	
+1-31	136-139	and	_	
+1-32	140-143	put	_	
+1-33	144-148	them	_	
+1-34	149-153	into	_	
+1-35	154-159	water	FOOD\_LU	
+1-36	160-163	for	_	
+1-37	164-167	two	_	
+1-38	168-172	days	_	
+1-39	172-173	,	_	
+1-40	174-182	shifting	_	
+1-41	183-187	them	_	
+1-42	188-193	twice	_	
+1-43	194-196	or	_	
+1-44	197-202	three	_	
+1-45	203-208	times	_	
+1-46	209-210	a	_	
+1-47	211-214	day	_	
+1-48	214-215	,	_	
+1-49	216-220	then	_	
+1-50	221-225	boil	COOKING\_CREATION\_LU	
+1-51	226-230	them	_	
+1-52	231-237	whilst	_	
+1-53	238-242	they	_	
+1-54	243-246	are	_	
+1-55	247-251	soft	DESCR\_Positive	
+1-56	251-252	:	_	
+1-57	253-257	take	_	
+1-58	258-261	and	_	
+1-59	262-265	cut	COOKING\_CREATION\_LU	
+1-60	266-270	them	_	
+1-61	271-275	into	_	
+1-62	276-284	quarters	_	
+1-63	284-285	,	_	
+1-64	286-289	and	_	
+1-65	290-294	take	COOKING\_CREATION\_LU[8]	
+1-66	295-298	out	COOKING\_CREATION\_LU[8]	
+1-67	299-302	all	_	
+1-68	303-306	the	_	
+1-69	307-314	pippens	FOOD\_Constituent\_Part	
+1-70	315-319	with	_	
+1-71	320-321	a	_	
+1-72	322-330	penknife	_	
+1-73	330-331	,	_	
+1-74	332-334	so	_	
+1-75	335-340	weigh	_	
+1-76	341-345	them	_	
+1-77	345-346	,	_	
+1-78	347-350	and	_	
+1-79	351-353	to	_	
+1-80	354-359	every	_	
+1-81	360-365	pound	FOOD\_Unit	
+1-82	366-368	of	_	
+1-83	369-375	orange	FOOD\_LU	
+1-84	375-376	,	_	
+1-85	377-381	take	_	
+1-86	382-383	a	FOOD\_Unit[9]	
+1-87	384-389	pound	FOOD\_Unit[9]	
+1-88	390-393	and	_	
+1-89	394-398	half	FOOD\_Count	
+1-90	399-401	of	_	
+1-91	402-406	loaf	FOOD\_LU[10]|DESCR\_Neutral[11]	
+1-92	407-412	sugar	FOOD\_LU[10]|FOOD\_LU[12]	
+1-93	412-413	;	_	
+1-94	414-417	put	_	
+1-95	418-422	your	_	
+1-96	423-428	sugar	FOOD\_LU[13]|COOKING\_CREATION\_Food\_Material[14]	
+1-97	429-433	into	_	
+1-98	434-435	a	_	
+1-99	436-439	pan	_	
+1-100	439-440	,	_	
+1-101	441-444	and	_	
+1-102	445-447	to	_	
+1-103	448-453	every	_	
+1-104	454-459	pound	FOOD\_Unit	
+1-105	460-462	of	_	
+1-106	463-468	sugar	FOOD\_LU	
+1-107	469-470	a	COOKING\_CREATION\_Food\_Material[15]|FOOD\_Unit[16]	
+1-108	471-475	pint	COOKING\_CREATION\_Food\_Material[15]|FOOD\_Unit[16]	
+1-109	476-478	of	COOKING\_CREATION\_Food\_Material[15]	
+1-110	479-484	water	COOKING\_CREATION\_Food\_Material[15]|FOOD\_LU[17]	
+1-111	484-485	,	_	
+1-112	486-489	set	_	
+1-113	490-492	it	_	
+1-114	493-497	over	_	
+1-115	498-501	the	_	
+1-116	502-506	fire	_	
+1-117	507-509	to	_	
+1-118	510-514	melt	_	
+1-119	514-515	,	_	
+1-120	516-519	and	_	
+1-121	520-524	when	_	
+1-122	525-527	it	_	
+1-123	528-533	boils	COOKING\_CREATION\_LU	
+1-124	534-538	skim	_	
+1-125	539-541	it	_	
+1-126	542-546	very	_	
+1-127	547-551	well	_	
+1-128	551-552	,	_	
+1-129	553-557	then	_	
+1-130	558-561	put	_	
+1-131	562-564	in	_	
+1-132	565-569	your	_	
+1-133	570-577	oranges	FOOD\_LU[18]|COOKING\_CREATION\_Food\_Material[19]	
+1-134	577-578	;	_	
+1-135	579-581	if	_	
+1-136	582-585	you	_	
+1-137	586-591	would	_	
+1-138	592-596	have	_	
+1-139	597-600	any	_	
+1-140	601-603	of	_	
+1-141	604-608	them	_	
+1-142	609-614	whole	DESCR\_Neutral	
+1-143	614-615	,	_	
+1-144	616-620	make	COOKING\_CREATION\_LU	
+1-145	621-622	a	_	
+1-146	623-629	little	_	
+1-147	630-634	hole	_	
+1-148	635-637	at	_	
+1-149	638-641	the	_	
+1-150	642-645	top	_	
+1-151	645-646	,	_	
+1-152	647-650	and	_	
+1-153	651-655	take	COOKING\_CREATION\_LU[20]	
+1-154	656-659	out	COOKING\_CREATION\_LU[20]	
+1-155	660-663	the	_	
+1-156	664-668	meat	FOOD\_Constituent\_Part[21]|COOKING\_CREATION\_Food\_Material[22]	
+1-157	669-673	with	_	
+1-158	674-675	a	_	
+1-159	676-679	tea	_	
+1-160	680-685	spoon	_	
+1-161	685-686	,	_	
+1-162	687-690	set	_	
+1-163	691-695	your	_	
+1-164	696-703	oranges	FOOD\_LU[23]|COOKING\_CREATION\_Food\_Material[24]	
+1-165	704-708	over	_	
+1-166	709-710	a	_	
+1-167	711-715	slow	_	
+1-168	716-720	fire	_	
+1-169	721-723	to	_	
+1-170	724-728	boil	COOKING\_CREATION\_LU	
+1-171	728-729	,	_	
+1-172	730-733	and	_	
+1-173	734-738	keep	_	
+1-174	739-743	them	_	
+1-175	744-752	skimming	COOKING\_CREATION\_LU	
+1-176	753-756	all	_	
+1-177	757-760	the	_	
+1-178	761-766	while	_	
+1-179	766-767	;	_	
+1-180	768-772	keep	_	
+1-181	773-777	your	_	
+1-182	778-785	oranges	FOOD\_LU	
+1-183	786-788	as	_	
+1-184	789-793	much	_	
+1-185	794-796	as	_	
+1-186	797-800	you	_	
+1-187	801-804	can	_	
+1-188	805-809	with	_	
+1-189	810-813	the	_	
+1-190	814-818	skin	FOOD\_Constituent\_Part	
+1-191	819-828	downwards	_	
+1-192	828-829	;	_	
+1-193	830-833	you	_	
+1-194	834-837	may	_	
+1-195	838-843	cover	_	
+1-196	844-848	them	_	
+1-197	849-853	with	_	
+1-198	854-855	a	_	
+1-199	856-866	delf-plate	_	
+1-200	866-867	,	_	
+1-201	868-870	to	_	
+1-202	871-875	bear	_	
+1-203	876-880	them	_	
+1-204	881-885	down	_	
+1-205	886-888	in	_	
+1-206	889-892	the	_	
+1-207	893-900	boiling	COOKING\_CREATION\_LU	
+1-208	900-901	;	_	
+1-209	902-905	let	_	
+1-210	906-910	them	_	
+1-211	911-915	boil	COOKING\_CREATION\_LU	
+1-212	916-919	for	_	
+1-213	920-925	three	_	
+1-214	926-934	quarters	_	
+1-215	935-937	of	_	
+1-216	938-940	an	_	
+1-217	941-945	hour	_	
+1-218	945-946	,	_	
+1-219	947-951	then	_	
+1-220	952-955	put	_	
+1-221	956-960	them	_	
+1-222	961-965	into	_	
+1-223	966-967	a	_	
+1-224	968-971	pot	_	
+1-225	972-974	or	_	
+1-226	975-980	bason	_	
+1-227	980-981	,	_	
+1-228	982-985	and	_	
+1-229	986-989	let	_	
+1-230	990-994	them	_	
+1-231	995-1000	stand	_	
+1-232	1001-1004	two	_	
+1-233	1005-1009	days	_	
+1-234	1010-1017	covered	_	
+1-235	1017-1018	,	_	
+1-236	1019-1023	then	_	
+1-237	1024-1028	boil	COOKING\_CREATION\_LU	
+1-238	1029-1033	them	_	
+1-239	1034-1039	again	_	
+1-240	1040-1046	whilst	_	
+1-241	1047-1051	they	_	
+1-242	1052-1056	look	_	
+1-243	1057-1062	clear	DESCR\_Neutral	
+1-244	1062-1063	,	_	
+1-245	1064-1067	and	_	
+1-246	1068-1071	the	_	
+1-247	1072-1078	syrrup	FOOD\_LU	
+1-248	1079-1081	be	_	
+1-249	1082-1087	thick	DESCR\_Neutral	
+1-250	1087-1088	,	_	
+1-251	1089-1091	so	_	
+1-252	1092-1095	put	_	
+1-253	1096-1100	them	_	
+1-254	1101-1105	into	_	
+1-255	1106-1107	a	_	
+1-256	1108-1111	pot	_	
+1-257	1111-1112	,	_	
+1-258	1113-1116	and	_	
+1-259	1117-1120	lie	_	
+1-260	1121-1126	close	_	
+1-261	1127-1131	over	_	
+1-262	1132-1136	them	_	
+1-263	1137-1138	a	_	
+1-264	1139-1144	paper	_	
+1-265	1145-1150	dip'd	_	
+1-266	1151-1153	in	_	
+1-267	1154-1160	brandy	FOOD\_LU	
+1-268	1160-1161	,	_	
+1-269	1162-1165	and	_	
+1-270	1166-1169	tie	_	
+1-271	1170-1171	a	_	
+1-272	1172-1178	double	_	
+1-273	1179-1184	paper	_	
+1-274	1185-1187	at	_	
+1-275	1188-1191	the	_	
+1-276	1192-1195	top	_	
+1-277	1195-1196	,	_	
+1-278	1197-1200	set	_	
+1-279	1201-1205	them	_	
+1-280	1206-1208	in	_	
+1-281	1209-1210	a	_	
+1-282	1211-1215	cool	_	
+1-283	1216-1221	place	_	
+1-284	1221-1222	,	_	
+1-285	1223-1226	and	_	
+1-286	1227-1231	keep	_	
+1-287	1232-1236	them	_	
+1-288	1237-1240	for	_	
+1-289	1241-1244	use	_	
+1-290	1244-1245	.	_	
+
+#Text=If you would have your oranges that are whole to look pale and
+#Text=clear, to put in glasses, you must make a syrrup of pippen jelly; then
+#Text=take ten or a dozen pippens, as they are of bigness, pare and slice
+#Text=them, and boil them in as much water as will cover them till they be
+#Text=thoroughly tender, so strain your water from the pippens through a hair
+#Text=sieve, then strain it through a flannel bag; and to every pint of jelly
+#Text=take a pound of double refined sugar, set it over a fire to boil, and
+#Text=skim it, let it boil whilst it be thick, then put it into a pot and
+#Text=cover it, but they will keep best if they be put every one in different
+#Text=pots.
+2-1	1246-1248	If	_	
+2-2	1249-1252	you	_	
+2-3	1253-1258	would	_	
+2-4	1259-1263	have	_	
+2-5	1264-1268	your	_	
+2-6	1269-1276	oranges	FOOD\_LU	
+2-7	1277-1281	that	_	
+2-8	1282-1285	are	_	
+2-9	1286-1291	whole	_	
+2-10	1292-1294	to	_	
+2-11	1295-1299	look	_	
+2-12	1300-1304	pale	DESCR\_Neutral	
+2-13	1305-1308	and	_	
+2-14	1309-1314	clear	DESCR\_Neutral	
+2-15	1314-1315	,	_	
+2-16	1316-1318	to	_	
+2-17	1319-1322	put	_	
+2-18	1323-1325	in	_	
+2-19	1326-1333	glasses	_	
+2-20	1333-1334	,	_	
+2-21	1335-1338	you	_	
+2-22	1339-1343	must	_	
+2-23	1344-1348	make	COOKING\_CREATION\_LU	
+2-24	1349-1350	a	_	
+2-25	1351-1357	syrrup	FOOD\_LU	
+2-26	1358-1360	of	_	
+2-27	1361-1367	pippen	FOOD\_LU[25]|INGR\_Food\_Product[26]|FOOD\_LU[27]|INGR\_Material\_LU[28]	
+2-28	1368-1373	jelly	FOOD\_LU[25]|INGR\_Food\_Product[26]	
+2-29	1373-1374	;	_	
+2-30	1375-1379	then	_	
+2-31	1380-1384	take	_	
+2-32	1385-1388	ten	FOOD\_Count	
+2-33	1389-1391	or	_	
+2-34	1392-1393	a	FOOD\_Unit[29]	
+2-35	1394-1399	dozen	FOOD\_Unit[29]	
+2-36	1400-1407	pippens	FOOD\_LU	
+2-37	1407-1408	,	_	
+2-38	1409-1411	as	_	
+2-39	1412-1416	they	_	
+2-40	1417-1420	are	_	
+2-41	1421-1423	of	_	
+2-42	1424-1431	bigness	DESCR\_Neutral	
+2-43	1431-1432	,	_	
+2-44	1433-1437	pare	COOKING\_CREATION\_LU	
+2-45	1438-1441	and	_	
+2-46	1442-1447	slice	COOKING\_CREATION\_LU	
+2-47	1448-1452	them	_	
+2-48	1452-1453	,	_	
+2-49	1454-1457	and	_	
+2-50	1458-1462	boil	COOKING\_CREATION\_LU	
+2-51	1463-1467	them	_	
+2-52	1468-1470	in	_	
+2-53	1471-1473	as	_	
+2-54	1474-1478	much	_	
+2-55	1479-1484	water	FOOD\_LU	
+2-56	1485-1487	as	_	
+2-57	1488-1492	will	_	
+2-58	1493-1498	cover	_	
+2-59	1499-1503	them	_	
+2-60	1504-1508	till	_	
+2-61	1509-1513	they	_	
+2-62	1514-1516	be	_	
+2-63	1517-1527	thoroughly	_	
+2-64	1528-1534	tender	DESCR\_Neutral	
+2-65	1534-1535	,	_	
+2-66	1536-1538	so	_	
+2-67	1539-1545	strain	COOKING\_CREATION\_LU	
+2-68	1546-1550	your	_	
+2-69	1551-1556	water	FOOD\_LU[30]|COOKING\_CREATION\_Food\_Material[31]	
+2-70	1557-1561	from	_	
+2-71	1562-1565	the	_	
+2-72	1566-1573	pippens	FOOD\_LU[32]|COOKING\_CREATION\_Food\_Material[33]	
+2-73	1574-1581	through	_	
+2-74	1582-1583	a	_	
+2-75	1584-1588	hair	_	
+2-76	1589-1594	sieve	_	
+2-77	1594-1595	,	_	
+2-78	1596-1600	then	_	
+2-79	1601-1607	strain	COOKING\_CREATION\_LU	
+2-80	1608-1610	it	_	
+2-81	1611-1618	through	_	
+2-82	1619-1620	a	_	
+2-83	1621-1628	flannel	_	
+2-84	1629-1632	bag	_	
+2-85	1632-1633	;	_	
+2-86	1634-1637	and	_	
+2-87	1638-1640	to	_	
+2-88	1641-1646	every	_	
+2-89	1647-1651	pint	FOOD\_Unit	
+2-90	1652-1654	of	_	
+2-91	1655-1660	jelly	FOOD\_LU	
+2-92	1661-1665	take	_	
+2-93	1666-1667	a	FOOD\_Unit[34]	
+2-94	1668-1673	pound	FOOD\_Unit[34]	
+2-95	1674-1676	of	_	
+2-96	1677-1683	double	DESCR\_Neutral[35]|COOKING\_CREATION\_LU[36]	
+2-97	1684-1691	refined	DESCR\_Neutral[35]|COOKING\_CREATION\_LU[36]	
+2-98	1692-1697	sugar	FOOD\_LU[37]|COOKING\_CREATION\_Food\_Material[38]	
+2-99	1697-1698	,	_	
+2-100	1699-1702	set	_	
+2-101	1703-1705	it	_	
+2-102	1706-1710	over	_	
+2-103	1711-1712	a	_	
+2-104	1713-1717	fire	_	
+2-105	1718-1720	to	_	
+2-106	1721-1725	boil	COOKING\_CREATION\_LU	
+2-107	1725-1726	,	_	
+2-108	1727-1730	and	_	
+2-109	1731-1735	skim	_	
+2-110	1736-1738	it	_	
+2-111	1738-1739	,	_	
+2-112	1740-1743	let	_	
+2-113	1744-1746	it	_	
+2-114	1747-1751	boil	COOKING\_CREATION\_LU	
+2-115	1752-1758	whilst	_	
+2-116	1759-1761	it	_	
+2-117	1762-1764	be	_	
+2-118	1765-1770	thick	DESCR\_Neutral	
+2-119	1770-1771	,	_	
+2-120	1772-1776	then	_	
+2-121	1777-1780	put	_	
+2-122	1781-1783	it	_	
+2-123	1784-1788	into	_	
+2-124	1789-1790	a	_	
+2-125	1791-1794	pot	_	
+2-126	1795-1798	and	_	
+2-127	1799-1804	cover	_	
+2-128	1805-1807	it	_	
+2-129	1807-1808	,	_	
+2-130	1809-1812	but	_	
+2-131	1813-1817	they	_	
+2-132	1818-1822	will	_	
+2-133	1823-1827	keep	_	
+2-134	1828-1832	best	_	
+2-135	1833-1835	if	_	
+2-136	1836-1840	they	_	
+2-137	1841-1843	be	_	
+2-138	1844-1847	put	_	
+2-139	1848-1853	every	_	
+2-140	1854-1857	one	_	
+2-141	1858-1860	in	_	
+2-142	1861-1870	different	_	
+2-143	1871-1875	pots	_	
+2-144	1875-1876	.	_	
+
+#Text=To make ONION SOOP [18th]
+#Text=
+#Text=Take four or five large onions, pill and boil them in milk and water
+#Text=whilst tender, (shifting them two or three times in the boiling) beat
+#Text='em in a marble mortar to a pulp, and rub them thro' a hair-sieve, and
+#Text=put them into a little sweet gravy; then fry a few slices of veal, and
+#Text=two or three slices of lean bacon; beat them in a marble mortar as
+#Text=small as forc'd-meat; put it into your stew-pan with the gravy and
+#Text=onions, and boil them; mi
+#Text= a spoonful of wheat-flour with a little
+#Text=water, and put it into the soop to keep it from running; strain all
+#Text=through a cullender, season it to your taste; then put into the dish a
+#Text=little spinage stew'd in butter, and a little crisp bread; so serve it
+#Text=up.
+3-1	1879-1881	To	_	
+3-2	1882-1886	make	COOKING\_CREATION\_LU	
+3-3	1887-1892	ONION	FOOD\_LU[39]|INGR\_Food\_Product[40]|COOKING\_CREATION\_Food\_Product[41]|FOOD\_LU[42]|INGR\_Material\_LU[43]	
+3-4	1893-1897	SOOP	FOOD\_LU[39]|INGR\_Food\_Product[40]|COOKING\_CREATION\_Food\_Product[41]	
+3-5	1898-1899	[	_	
+3-6	1899-1903	18th	_	
+3-7	1903-1904	]	_	
+3-8	1906-1910	Take	_	
+3-9	1911-1915	four	COOKING\_CREATION\_Food\_Material[44]|INGR\_Material\_LU[45]|FOOD\_Count[46]	
+3-10	1916-1918	or	COOKING\_CREATION\_Food\_Material[44]|INGR\_Material\_LU[45]	
+3-11	1919-1923	five	COOKING\_CREATION\_Food\_Material[44]|INGR\_Material\_LU[45]|FOOD\_Count[47]	
+3-12	1924-1929	large	COOKING\_CREATION\_Food\_Material[44]|INGR\_Material\_LU[45]|DESCR\_Neutral[48]	
+3-13	1930-1936	onions	COOKING\_CREATION\_Food\_Material[44]|INGR\_Material\_LU[45]|FOOD\_LU[49]	
+3-14	1936-1937	,	_	
+3-15	1938-1942	pill	COOKING\_CREATION\_LU	
+3-16	1943-1946	and	_	
+3-17	1947-1951	boil	COOKING\_CREATION\_LU	
+3-18	1952-1956	them	_	
+3-19	1957-1959	in	_	
+3-20	1960-1964	milk	FOOD\_LU[50]|COOKING\_CREATION\_Food\_Material[51]	
+3-21	1965-1968	and	_	
+3-22	1969-1974	water	FOOD\_LU[52]|COOKING\_CREATION\_Food\_Material[53]	
+3-23	1975-1981	whilst	_	
+3-24	1982-1988	tender	DESCR\_Neutral	
+3-25	1988-1989	,	_	
+3-26	1990-1991	(	_	
+3-27	1991-1999	shifting	_	
+3-28	2000-2004	them	_	
+3-29	2005-2008	two	_	
+3-30	2009-2011	or	_	
+3-31	2012-2017	three	_	
+3-32	2018-2023	times	_	
+3-33	2024-2026	in	_	
+3-34	2027-2030	the	_	
+3-35	2031-2038	boiling	COOKING\_CREATION\_LU	
+3-36	2038-2039	)	_	
+3-37	2040-2044	beat	COOKING\_CREATION\_LU	
+3-38	2045-2046	'	_	
+3-39	2046-2048	em	_	
+3-40	2049-2051	in	_	
+3-41	2052-2053	a	_	
+3-42	2054-2060	marble	_	
+3-43	2061-2067	mortar	_	
+3-44	2068-2070	to	_	
+3-45	2071-2072	a	_	
+3-46	2073-2077	pulp	FOOD\_LU	
+3-47	2077-2078	,	_	
+3-48	2079-2082	and	_	
+3-49	2083-2086	rub	COOKING\_CREATION\_LU	
+3-50	2087-2091	them	_	
+3-51	2092-2096	thro	_	
+3-52	2096-2097	'	_	
+3-53	2098-2099	a	_	
+3-54	2100-2110	hair-sieve	_	
+3-55	2110-2111	,	_	
+3-56	2112-2115	and	_	
+3-57	2116-2119	put	_	
+3-58	2120-2124	them	_	
+3-59	2125-2129	into	_	
+3-60	2130-2131	a	FOOD\_Count[54]	
+3-61	2132-2138	little	FOOD\_Count[54]	
+3-62	2139-2144	sweet	DESCR\_Positive	
+3-63	2145-2150	gravy	FOOD\_LU	
+3-64	2150-2151	;	_	
+3-65	2152-2156	then	_	
+3-66	2157-2160	fry	COOKING\_CREATION\_LU	
+3-67	2161-2162	a	COOKING\_CREATION\_Food\_Material[55]|FOOD\_Count[56]	
+3-68	2163-2166	few	COOKING\_CREATION\_Food\_Material[55]|FOOD\_Count[56]	
+3-69	2167-2173	slices	COOKING\_CREATION\_Food\_Material[55]|FOOD\_Unit[57]	
+3-70	2174-2176	of	COOKING\_CREATION\_Food\_Material[55]	
+3-71	2177-2181	veal	COOKING\_CREATION\_Food\_Material[55]|FOOD\_LU[58]	
+3-72	2181-2182	,	_	
+3-73	2183-2186	and	_	
+3-74	2187-2190	two	COOKING\_CREATION\_Food\_Material[59]|FOOD\_Count[60]	
+3-75	2191-2193	or	COOKING\_CREATION\_Food\_Material[59]	
+3-76	2194-2199	three	COOKING\_CREATION\_Food\_Material[59]|FOOD\_Count[61]	
+3-77	2200-2206	slices	COOKING\_CREATION\_Food\_Material[59]|FOOD\_Unit[62]	
+3-78	2207-2209	of	COOKING\_CREATION\_Food\_Material[59]	
+3-79	2210-2214	lean	COOKING\_CREATION\_Food\_Material[59]|DESCR\_Neutral[63]	
+3-80	2215-2220	bacon	COOKING\_CREATION\_Food\_Material[59]|FOOD\_LU[64]	
+3-81	2220-2221	;	_	
+3-82	2222-2226	beat	COOKING\_CREATION\_LU	
+3-83	2227-2231	them	_	
+3-84	2232-2234	in	_	
+3-85	2235-2236	a	_	
+3-86	2237-2243	marble	_	
+3-87	2244-2250	mortar	_	
+3-88	2251-2253	as	_	
+3-89	2254-2259	small	_	
+3-90	2260-2262	as	_	
+3-91	2263-2274	forc'd-meat	FOOD\_LU	
+3-92	2274-2275	;	_	
+3-93	2276-2279	put	_	
+3-94	2280-2282	it	_	
+3-95	2283-2287	into	_	
+3-96	2288-2292	your	_	
+3-97	2293-2301	stew-pan	_	
+3-98	2302-2306	with	_	
+3-99	2307-2310	the	_	
+3-100	2311-2316	gravy	FOOD\_LU[65]|COOKING\_CREATION\_Food\_Material[66]	
+3-101	2317-2320	and	_	
+3-102	2321-2327	onions	FOOD\_LU[67]|COOKING\_CREATION\_Food\_Material[68]	
+3-103	2327-2328	,	_	
+3-104	2329-2332	and	_	
+3-105	2333-2337	boil	COOKING\_CREATION\_LU	
+3-106	2338-2342	them	_	
+3-107	2342-2343	;	_	
+3-108	2344-2346	mi	_	
+3-109	2348-2349	a	FOOD\_Unit[69]	
+3-110	2350-2358	spoonful	FOOD\_Unit[69]	
+3-111	2359-2361	of	_	
+3-112	2362-2373	wheat-flour	FOOD\_LU	
+3-113	2374-2378	with	_	
+3-114	2379-2380	a	FOOD\_Count[70]	
+3-115	2381-2387	little	FOOD\_Count[70]	
+3-116	2388-2393	water	FOOD\_LU	
+3-117	2393-2394	,	_	
+3-118	2395-2398	and	_	
+3-119	2399-2402	put	_	
+3-120	2403-2405	it	_	
+3-121	2406-2410	into	_	
+3-122	2411-2414	the	_	
+3-123	2415-2419	soop	FOOD\_LU[71]|COOKING\_CREATION\_Food\_Material[72]	
+3-124	2420-2422	to	_	
+3-125	2423-2427	keep	_	
+3-126	2428-2430	it	_	
+3-127	2431-2435	from	_	
+3-128	2436-2443	running	_	
+3-129	2443-2444	;	_	
+3-130	2445-2451	strain	COOKING\_CREATION\_LU	
+3-131	2452-2455	all	_	
+3-132	2456-2463	through	_	
+3-133	2464-2465	a	_	
+3-134	2466-2475	cullender	_	
+3-135	2475-2476	,	_	
+3-136	2477-2483	season	COOKING\_CREATION\_LU	
+3-137	2484-2486	it	_	
+3-138	2487-2489	to	_	
+3-139	2490-2494	your	_	
+3-140	2495-2500	taste	_	
+3-141	2500-2501	;	_	
+3-142	2502-2506	then	_	
+3-143	2507-2510	put	_	
+3-144	2511-2515	into	_	
+3-145	2516-2519	the	_	
+3-146	2520-2524	dish	_	
+3-147	2525-2526	a	COOKING\_CREATION\_Food\_Material[73]|FOOD\_Count[74]	
+3-148	2527-2533	little	COOKING\_CREATION\_Food\_Material[73]|FOOD\_Count[74]	
+3-149	2534-2541	spinage	COOKING\_CREATION\_Food\_Material[73]|FOOD\_LU[75]	
+3-150	2542-2548	stew'd	COOKING\_CREATION\_LU	
+3-151	2549-2551	in	_	
+3-152	2552-2558	butter	FOOD\_LU[76]|COOKING\_CREATION\_Food\_Material[77]	
+3-153	2558-2559	,	_	
+3-154	2560-2563	and	_	
+3-155	2564-2565	a	DESCR\_Neutral[78]	
+3-156	2566-2572	little	DESCR\_Neutral[78]	
+3-157	2573-2578	crisp	DESCR\_Neutral[78]	
+3-158	2579-2584	bread	FOOD\_LU	
+3-159	2584-2585	;	_	
+3-160	2586-2588	so	_	
+3-161	2589-2594	serve	_	
+3-162	2595-2597	it	_	
+3-163	2598-2600	up	_	
+3-164	2600-2601	.	_	
+
+#Text=BROWN MIXTURE FOR A COUGH [19th]
+#Text=
+#Text=Mix in a large bottle, half an ounce of
+#Text=liquorice; a quarter of an ounce of gum-arabic; two tea-spoonfuls of
+#Text=antimonial wine; sixty drops of laudanum; and half a pint of water.
+4-1	2604-2609	BROWN	_	
+4-2	2610-2617	MIXTURE	_	
+4-3	2618-2621	FOR	_	
+4-4	2622-2623	A	_	
+4-5	2624-2629	COUGH	CURE\_Affliction[79]|CURE\_LU[80]	
+4-6	2630-2631	[	_	
+4-7	2631-2635	19th	_	
+4-8	2635-2636	]	_	
+4-9	2638-2641	Mix	_	
+4-10	2642-2644	in	_	
+4-11	2645-2646	a	_	
+4-12	2647-2652	large	_	
+4-13	2653-2659	bottle	_	
+4-14	2659-2660	,	_	
+4-15	2661-2665	half	COOKING\_CREATION\_Food\_Material[81]|CURE\_Food\_Treatment[82]|FOOD\_Count[83]	
+4-16	2666-2668	an	COOKING\_CREATION\_Food\_Material[81]|CURE\_Food\_Treatment[82]|FOOD\_Unit[84]	
+4-17	2669-2674	ounce	COOKING\_CREATION\_Food\_Material[81]|CURE\_Food\_Treatment[82]|FOOD\_Unit[84]	
+4-18	2675-2677	of	COOKING\_CREATION\_Food\_Material[81]|CURE\_Food\_Treatment[82]	
+4-19	2678-2687	liquorice	COOKING\_CREATION\_Food\_Material[81]|CURE\_Food\_Treatment[82]|FOOD\_LU[85]	
+4-20	2687-2688	;	_	
+4-21	2689-2690	a	COOKING\_CREATION\_Food\_Material[86]|CURE\_Food\_Treatment[87]|FOOD\_Count[88]	
+4-22	2691-2698	quarter	COOKING\_CREATION\_Food\_Material[86]|CURE\_Food\_Treatment[87]|FOOD\_Count[88]	
+4-23	2699-2701	of	COOKING\_CREATION\_Food\_Material[86]|CURE\_Food\_Treatment[87]	
+4-24	2702-2704	an	COOKING\_CREATION\_Food\_Material[86]|CURE\_Food\_Treatment[87]|FOOD\_Unit[89]	
+4-25	2705-2710	ounce	COOKING\_CREATION\_Food\_Material[86]|CURE\_Food\_Treatment[87]|FOOD\_Unit[89]	
+4-26	2711-2713	of	COOKING\_CREATION\_Food\_Material[86]|CURE\_Food\_Treatment[87]	
+4-27	2714-2724	gum-arabic	COOKING\_CREATION\_Food\_Material[86]|CURE\_Food\_Treatment[87]|FOOD\_LU[90]	
+4-28	2724-2725	;	_	
+4-29	2726-2729	two	COOKING\_CREATION\_Food\_Material[91]|CURE\_Food\_Treatment[92]|FOOD\_Count[93]	
+4-30	2730-2743	tea-spoonfuls	COOKING\_CREATION\_Food\_Material[91]|CURE\_Food\_Treatment[92]|FOOD\_Unit[94]	
+4-31	2744-2746	of	COOKING\_CREATION\_Food\_Material[91]|CURE\_Food\_Treatment[92]	
+4-32	2747-2757	antimonial	COOKING\_CREATION\_Food\_Material[91]|CURE\_Food\_Treatment[92]|DESCR\_Neutral[95]	
+4-33	2758-2762	wine	COOKING\_CREATION\_Food\_Material[91]|CURE\_Food\_Treatment[92]|FOOD\_LU[96]	
+4-34	2762-2763	;	_	
+4-35	2764-2769	sixty	COOKING\_CREATION\_Food\_Material[97]|CURE\_Food\_Treatment[98]|FOOD\_Count[99]	
+4-36	2770-2775	drops	COOKING\_CREATION\_Food\_Material[97]|CURE\_Food\_Treatment[98]|FOOD\_Unit[100]	
+4-37	2776-2778	of	COOKING\_CREATION\_Food\_Material[97]|CURE\_Food\_Treatment[98]	
+4-38	2779-2787	laudanum	COOKING\_CREATION\_Food\_Material[97]|CURE\_Food\_Treatment[98]|FOOD\_LU[101]	
+4-39	2787-2788	;	_	
+4-40	2789-2792	and	_	
+4-41	2793-2797	half	COOKING\_CREATION\_Food\_Material[102]|CURE\_Food\_Treatment[103]|INGR\_Material\_LU[104]|FOOD\_Count[105]	
+4-42	2798-2799	a	COOKING\_CREATION\_Food\_Material[102]|CURE\_Food\_Treatment[103]|INGR\_Material\_LU[104]|FOOD\_Unit[106]	
+4-43	2800-2804	pint	COOKING\_CREATION\_Food\_Material[102]|CURE\_Food\_Treatment[103]|INGR\_Material\_LU[104]|FOOD\_Unit[106]	
+4-44	2805-2807	of	COOKING\_CREATION\_Food\_Material[102]|CURE\_Food\_Treatment[103]|INGR\_Material\_LU[104]	
+4-45	2808-2813	water	COOKING\_CREATION\_Food\_Material[102]|CURE\_Food\_Treatment[103]|INGR\_Material\_LU[104]|FOOD\_LU[107]	
+4-46	2813-2814	.	_	
+
+#Text=Shake it well, and when the ingredients are thoroughly amalgamated it
+#Text=will be fit for use.
+5-1	2815-2820	Shake	COOKING\_CREATION\_LU	
+5-2	2821-2823	it	_	
+5-3	2824-2828	well	_	
+5-4	2828-2829	,	_	
+5-5	2830-2833	and	_	
+5-6	2834-2838	when	_	
+5-7	2839-2842	the	_	
+5-8	2843-2854	ingredients	_	
+5-9	2855-2858	are	_	
+5-10	2859-2869	thoroughly	_	
+5-11	2870-2881	amalgamated	_	
+5-12	2882-2884	it	_	
+5-13	2885-2889	will	_	
+5-14	2890-2892	be	_	
+5-15	2893-2896	fit	_	
+5-16	2897-2900	for	_	
+5-17	2901-2904	use	_	
+5-18	2904-2905	.	_	
+
+#Text=For a cold and cough, take a dessert-spoonful three
+#Text=or four times a day, shaking or stirring it first.
+6-1	2906-2909	For	_	
+6-2	2910-2911	a	_	
+6-3	2912-2916	cold	CURE\_Affliction[108]|CURE\_LU[109]	
+6-4	2917-2920	and	_	
+6-5	2921-2926	cough	CURE\_Affliction[110]|CURE\_LU[111]	
+6-6	2926-2927	,	_	
+6-7	2928-2932	take	_	
+6-8	2933-2934	a	FOOD\_Unit[112]	
+6-9	2935-2951	dessert-spoonful	FOOD\_Unit[112]	
+6-10	2952-2957	three	_	
+6-11	2958-2960	or	_	
+6-12	2961-2965	four	_	
+6-13	2966-2971	times	_	
+6-14	2972-2973	a	_	
+6-15	2974-2977	day	_	
+6-16	2977-2978	,	_	
+6-17	2979-2986	shaking	_	
+6-18	2987-2989	or	_	
+6-19	2990-2998	stirring	_	
+6-20	2999-3001	it	_	
+6-21	3002-3007	first	_	
+6-22	3007-3008	.	_	
+
+#Text=LEMON MACCAROONS [19th]
+#Text=
+#Text=Take four large ripe lemons, and rub off the yellow
+#Text=surface of the rind, upon a lump of sugar.
+7-1	3011-3016	LEMON	FOOD\_LU[113]|INGR\_Food\_Product[114]|FOOD\_LU[115]|INGR\_Material\_LU[116]	
+7-2	3017-3027	MACCAROONS	FOOD\_LU[113]|INGR\_Food\_Product[114]	
+7-3	3028-3029	[	_	
+7-4	3029-3033	19th	_	
+7-5	3033-3034	]	_	
+7-6	3036-3040	Take	_	
+7-7	3041-3045	four	COOKING\_CREATION\_Food\_Material[117]|FOOD\_Count[118]	
+7-8	3046-3051	large	COOKING\_CREATION\_Food\_Material[117]|DESCR\_Neutral[119]	
+7-9	3052-3056	ripe	COOKING\_CREATION\_Food\_Material[117]|DESCR\_Positive[120]	
+7-10	3057-3063	lemons	COOKING\_CREATION\_Food\_Material[117]|FOOD\_LU[121]	
+7-11	3063-3064	,	_	
+7-12	3065-3068	and	_	
+7-13	3069-3072	rub	COOKING\_CREATION\_LU[122]	
+7-14	3073-3076	off	COOKING\_CREATION\_LU[122]	
+7-15	3077-3080	the	_	
+7-16	3081-3087	yellow	DESCR\_Neutral	
+7-17	3088-3095	surface	_	
+7-18	3096-3098	of	_	
+7-19	3099-3102	the	_	
+7-20	3103-3107	rind	FOOD\_Constituent\_Part	
+7-21	3107-3108	,	_	
+7-22	3109-3113	upon	_	
+7-23	3114-3115	a	FOOD\_Count[123]	
+7-24	3116-3120	lump	FOOD\_Count[123]	
+7-25	3121-3123	of	_	
+7-26	3124-3129	sugar	FOOD\_LU	
+7-27	3129-3130	.	_	
+
+#Text=Then powder that sugar, and
+#Text=add to it not quite a pound of loaf-sugar, already powdered.
+8-1	3131-3135	Then	_	
+8-2	3136-3142	powder	COOKING\_CREATION\_LU	
+8-3	3143-3147	that	_	
+8-4	3148-3153	sugar	FOOD\_LU[124]|COOKING\_CREATION\_Food\_Material[125]	
+8-5	3153-3154	,	_	
+8-6	3155-3158	and	_	
+8-7	3159-3162	add	_	
+8-8	3163-3165	to	_	
+8-9	3166-3168	it	_	
+8-10	3169-3172	not	_	
+8-11	3173-3178	quite	_	
+8-12	3179-3180	a	FOOD\_Unit[126]	
+8-13	3181-3186	pound	FOOD\_Unit[126]	
+8-14	3187-3189	of	_	
+8-15	3190-3200	loaf-sugar	FOOD\_LU[127]|COOKING\_CREATION\_Food\_Material[128]	
+8-16	3200-3201	,	_	
+8-17	3202-3209	already	_	
+8-18	3210-3218	powdered	DESCR\_Neutral[129]|COOKING\_CREATION\_LU[130]	
+8-19	3218-3219	.	_	
+
+#Text=Break four
+#Text=eggs into a shallow pan, and beat them till very thick and light.
+9-1	3220-3225	Break	COOKING\_CREATION\_LU	
+9-2	3226-3230	four	COOKING\_CREATION\_Food\_Material[131]|FOOD\_Count[132]	
+9-3	3231-3235	eggs	COOKING\_CREATION\_Food\_Material[131]|FOOD\_LU[133]	
+9-4	3236-3240	into	_	
+9-5	3241-3242	a	_	
+9-6	3243-3250	shallow	_	
+9-7	3251-3254	pan	_	
+9-8	3254-3255	,	_	
+9-9	3256-3259	and	_	
+9-10	3260-3264	beat	COOKING\_CREATION\_LU	
+9-11	3265-3269	them	_	
+9-12	3270-3274	till	_	
+9-13	3275-3279	very	_	
+9-14	3280-3285	thick	DESCR\_Neutral	
+9-15	3286-3289	and	_	
+9-16	3290-3295	light	DESCR\_Positive	
+9-17	3295-3296	.	_	
+
+#Text=Then
+#Text=add the juice of the lemons, squeezed through a strainer, and a
+#Text=tea-spoonful of powdered nutmeg and cinnamon, and stir in the sugar, a
+#Text=little at a time, alternately with three large heaped-up table-spoonfuls
+#Text=of sifted flour.
+10-1	3297-3301	Then	_	
+10-2	3302-3305	add	_	
+10-3	3306-3309	the	_	
+10-4	3310-3315	juice	FOOD\_LU[134]|INGR\_Food\_Product[135]	
+10-5	3316-3318	of	_	
+10-6	3319-3322	the	_	
+10-7	3323-3329	lemons	FOOD\_LU[136]|INGR\_Material\_LU[137]|COOKING\_CREATION\_Food\_Material[138]	
+10-8	3329-3330	,	_	
+10-9	3331-3339	squeezed	COOKING\_CREATION\_LU	
+10-10	3340-3347	through	_	
+10-11	3348-3349	a	_	
+10-12	3350-3358	strainer	_	
+10-13	3358-3359	,	_	
+10-14	3360-3363	and	_	
+10-15	3364-3365	a	FOOD\_Unit[139]	
+10-16	3366-3378	tea-spoonful	FOOD\_Unit[139]	
+10-17	3379-3381	of	_	
+10-18	3382-3390	powdered	DESCR\_Neutral[140]|COOKING\_CREATION\_LU[141]	
+10-19	3391-3397	nutmeg	FOOD\_LU[142]|COOKING\_CREATION\_Food\_Material[143]	
+10-20	3398-3401	and	_	
+10-21	3402-3410	cinnamon	FOOD\_LU[144]|COOKING\_CREATION\_Food\_Material[145]	
+10-22	3410-3411	,	_	
+10-23	3412-3415	and	_	
+10-24	3416-3420	stir	_	
+10-25	3421-3423	in	_	
+10-26	3424-3427	the	_	
+10-27	3428-3433	sugar	FOOD\_LU	
+10-28	3433-3434	,	_	
+10-29	3435-3436	a	_	
+10-30	3437-3443	little	_	
+10-31	3444-3446	at	_	
+10-32	3447-3448	a	_	
+10-33	3449-3453	time	_	
+10-34	3453-3454	,	_	
+10-35	3455-3466	alternately	_	
+10-36	3467-3471	with	_	
+10-37	3472-3477	three	FOOD\_Count	
+10-38	3478-3483	large	FOOD\_Unit[146]	
+10-39	3484-3493	heaped-up	FOOD\_Unit[146]	
+10-40	3494-3509	table-spoonfuls	FOOD\_Unit[146]	
+10-41	3510-3512	of	_	
+10-42	3513-3519	sifted	DESCR\_Neutral[147]|COOKING\_CREATION\_LU[148]	
+10-43	3520-3525	flour	FOOD\_LU[149]|COOKING\_CREATION\_Food\_Material[150]	
+10-44	3525-3526	.	_	
+
+#Text=A little more flour may, probably, be found necessary.
+11-1	3527-3528	A	_	
+11-2	3529-3535	little	_	
+11-3	3536-3540	more	_	
+11-4	3541-3546	flour	FOOD\_LU	
+11-5	3547-3550	may	_	
+11-6	3550-3551	,	_	
+11-7	3552-3560	probably	_	
+11-8	3560-3561	,	_	
+11-9	3562-3564	be	_	
+11-10	3565-3570	found	_	
+11-11	3571-3580	necessary	_	
+11-12	3580-3581	.	_	
+
+#Text=Mix the whole, thoroughly, so as to form a soft paste.
+12-1	3582-3585	Mix	_	
+12-2	3586-3589	the	_	
+12-3	3590-3595	whole	_	
+12-4	3595-3596	,	_	
+12-5	3597-3607	thoroughly	_	
+12-6	3607-3608	,	_	
+12-7	3609-3611	so	_	
+12-8	3612-3614	as	_	
+12-9	3615-3617	to	_	
+12-10	3618-3622	form	_	
+12-11	3623-3624	a	_	
+12-12	3625-3629	soft	_	
+12-13	3630-3635	paste	_	
+12-14	3635-3636	.	_	
+
+#Text=Have ready some
+#Text=shallow, square baking-pans, or sheets of iron, the bottoms covered with
+#Text=white paper, laid smoothly in.
+13-1	3637-3641	Have	_	
+13-2	3642-3647	ready	_	
+13-3	3648-3652	some	_	
+13-4	3653-3660	shallow	_	
+13-5	3660-3661	,	_	
+13-6	3662-3668	square	_	
+13-7	3669-3680	baking-pans	_	
+13-8	3680-3681	,	_	
+13-9	3682-3684	or	_	
+13-10	3685-3691	sheets	_	
+13-11	3692-3694	of	_	
+13-12	3695-3699	iron	_	
+13-13	3699-3700	,	_	
+13-14	3701-3704	the	_	
+13-15	3705-3712	bottoms	_	
+13-16	3713-3720	covered	_	
+13-17	3721-3725	with	_	
+13-18	3726-3731	white	_	
+13-19	3732-3737	paper	_	
+13-20	3737-3738	,	_	
+13-21	3739-3743	laid	_	
+13-22	3744-3752	smoothly	_	
+13-23	3753-3755	in	_	
+13-24	3755-3756	.	_	
+
+#Text=Moisten your hands with water, and then
+#Text=take up portions of the mixture, and roll them into balls, about the
+#Text=size of a large plum, laying them, as you proceed, upon the paper, but
+#Text=rather more than an inch apart.
+14-1	3757-3764	Moisten	_	
+14-2	3765-3769	your	_	
+14-3	3770-3775	hands	_	
+14-4	3776-3780	with	_	
+14-5	3781-3786	water	_	
+14-6	3786-3787	,	_	
+14-7	3788-3791	and	_	
+14-8	3792-3796	then	_	
+14-9	3797-3801	take	_	
+14-10	3802-3804	up	_	
+14-11	3805-3813	portions	_	
+14-12	3814-3816	of	_	
+14-13	3817-3820	the	_	
+14-14	3821-3828	mixture	_	
+14-15	3828-3829	,	_	
+14-16	3830-3833	and	_	
+14-17	3834-3838	roll	_	
+14-18	3839-3843	them	_	
+14-19	3844-3848	into	_	
+14-20	3849-3854	balls	_	
+14-21	3854-3855	,	_	
+14-22	3856-3861	about	_	
+14-23	3862-3865	the	_	
+14-24	3866-3870	size	_	
+14-25	3871-3873	of	_	
+14-26	3874-3875	a	_	
+14-27	3876-3881	large	DESCR\_Neutral	
+14-28	3882-3886	plum	FOOD\_LU	
+14-29	3886-3887	,	_	
+14-30	3888-3894	laying	_	
+14-31	3895-3899	them	_	
+14-32	3899-3900	,	_	
+14-33	3901-3903	as	_	
+14-34	3904-3907	you	_	
+14-35	3908-3915	proceed	_	
+14-36	3915-3916	,	_	
+14-37	3917-3921	upon	_	
+14-38	3922-3925	the	_	
+14-39	3926-3931	paper	_	
+14-40	3931-3932	,	_	
+14-41	3933-3936	but	_	
+14-42	3937-3943	rather	_	
+14-43	3944-3948	more	_	
+14-44	3949-3953	than	_	
+14-45	3954-3956	an	_	
+14-46	3957-3961	inch	_	
+14-47	3962-3967	apart	_	
+14-48	3967-3968	.	_	
+
+#Text=Lastly, with the blade of a knife,
+#Text=dipped in water, smooth the surface of each.
+15-1	3969-3975	Lastly	_	
+15-2	3975-3976	,	_	
+15-3	3977-3981	with	_	
+15-4	3982-3985	the	_	
+15-5	3986-3991	blade	_	
+15-6	3992-3994	of	_	
+15-7	3995-3996	a	_	
+15-8	3997-4002	knife	_	
+15-9	4002-4003	,	_	
+15-10	4004-4010	dipped	_	
+15-11	4011-4013	in	_	
+15-12	4014-4019	water	FOOD\_LU	
+15-13	4019-4020	,	_	
+15-14	4021-4027	smooth	_	
+15-15	4028-4031	the	_	
+15-16	4032-4039	surface	_	
+15-17	4040-4042	of	_	
+15-18	4043-4047	each	_	
+15-19	4047-4048	.	_	
+
+#Text=Set them into a moderate
+#Text=oven, and bake them brown.
+16-1	4049-4052	Set	_	
+16-2	4053-4057	them	_	
+16-3	4058-4062	into	_	
+16-4	4063-4064	a	_	
+16-5	4065-4073	moderate	_	
+16-6	4074-4078	oven	_	
+16-7	4078-4079	,	_	
+16-8	4080-4083	and	_	
+16-9	4084-4088	bake	COOKING\_CREATION\_LU	
+16-10	4089-4093	them	_	
+16-11	4094-4099	brown	_	
+16-12	4099-4100	.	_	
+
+#Text=Try one, when you think they are done.
+17-1	4101-4104	Try	_	
+17-2	4105-4108	one	_	
+17-3	4108-4109	,	_	
+17-4	4110-4114	when	_	
+17-5	4115-4118	you	_	
+17-6	4119-4124	think	_	
+17-7	4125-4129	they	_	
+17-8	4130-4133	are	_	
+17-9	4134-4138	done	_	
+17-10	4138-4139	.	_	
+
+#Text=If not
+#Text=sufficiently baked, let them remain longer in the oven.
+18-1	4140-4142	If	_	
+18-2	4143-4146	not	COOKING\_CREATION\_LU[151]	
+18-3	4147-4159	sufficiently	COOKING\_CREATION\_LU[151]	
+18-4	4160-4165	baked	COOKING\_CREATION\_LU[151]	
+18-5	4165-4166	,	_	
+18-6	4167-4170	let	_	
+18-7	4171-4175	them	_	
+18-8	4176-4182	remain	_	
+18-9	4183-4189	longer	_	
+18-10	4190-4192	in	_	
+18-11	4193-4196	the	_	
+18-12	4197-4201	oven	_	
+18-13	4201-4202	.	_	
+
+#Text=As soon as they
+#Text=are cold, loosen them from the paper, by slipping under them a
+#Text=broad-bladed knife.
+19-1	4203-4205	As	_	
+19-2	4206-4210	soon	_	
+19-3	4211-4213	as	_	
+19-4	4214-4218	they	_	
+19-5	4219-4222	are	_	
+19-6	4223-4227	cold	DESCR\_Neutral	
+19-7	4227-4228	,	_	
+19-8	4229-4235	loosen	_	
+19-9	4236-4240	them	_	
+19-10	4241-4245	from	_	
+19-11	4246-4249	the	_	
+19-12	4250-4255	paper	_	
+19-13	4255-4256	,	_	
+19-14	4257-4259	by	_	
+19-15	4260-4268	slipping	_	
+19-16	4269-4274	under	_	
+19-17	4275-4279	them	_	
+19-18	4280-4281	a	_	
+19-19	4282-4294	broad-bladed	_	
+19-20	4295-4300	knife	_	
+19-21	4300-4301	.	_	
+
+#Text=Orange maccaroons may be made in this manner, using
+#Text=the grated rind of two oranges only, but the juice of four.
+20-1	4302-4308	Orange	FOOD\_LU[152]|INGR\_Food\_Product[153]|FOOD\_LU[154]|INGR\_Material\_LU[155]	
+20-2	4309-4319	maccaroons	FOOD\_LU[152]|INGR\_Food\_Product[153]	
+20-3	4320-4323	may	_	
+20-4	4324-4326	be	_	
+20-5	4327-4331	made	_	
+20-6	4332-4334	in	_	
+20-7	4335-4339	this	_	
+20-8	4340-4346	manner	_	
+20-9	4346-4347	,	_	
+20-10	4348-4353	using	_	
+20-11	4354-4357	the	_	
+20-12	4358-4364	grated	DESCR\_Neutral[156]|COOKING\_CREATION\_LU[157]	
+20-13	4365-4369	rind	COOKING\_CREATION\_Food\_Material[158]|FOOD\_Constituent\_Part[159]	
+20-14	4370-4372	of	COOKING\_CREATION\_Food\_Material[158]	
+20-15	4373-4376	two	COOKING\_CREATION\_Food\_Material[158]|FOOD\_Count[160]	
+20-16	4377-4384	oranges	COOKING\_CREATION\_Food\_Material[158]|FOOD\_LU[161]|INGR\_Material\_LU[162]	
+20-17	4385-4389	only	_	
+20-18	4389-4390	,	_	
+20-19	4391-4394	but	_	
+20-20	4395-4398	the	_	
+20-21	4399-4404	juice	COOKING\_CREATION\_Food\_Material[163]|FOOD\_LU[164]|INGR\_Food\_Product[165]	
+20-22	4405-4407	of	COOKING\_CREATION\_Food\_Material[163]	
+20-23	4408-4412	four	COOKING\_CREATION\_Food\_Material[163]|FOOD\_Count[166]	
+20-24	4412-4413	.	_	
+
+#Text=To make
+#Text=vanilla maccaroons, boil, in a covered vessel, a vanilla bean, with as
+#Text=much milk as will barely cover it.
+21-1	4414-4416	To	_	
+21-2	4417-4421	make	COOKING\_CREATION\_LU	
+21-3	4422-4429	vanilla	FOOD\_LU[167]|INGR\_Food\_Product[168]|COOKING\_CREATION\_Food\_Product[169]|FOOD\_LU[170]|INGR\_Material\_LU[171]	
+21-4	4430-4440	maccaroons	FOOD\_LU[167]|INGR\_Food\_Product[168]|COOKING\_CREATION\_Food\_Product[169]	
+21-5	4440-4441	,	_	
+21-6	4442-4446	boil	COOKING\_CREATION\_LU	
+21-7	4446-4447	,	_	
+21-8	4448-4450	in	_	
+21-9	4451-4452	a	_	
+21-10	4453-4460	covered	_	
+21-11	4461-4467	vessel	_	
+21-12	4467-4468	,	_	
+21-13	4469-4470	a	_	
+21-14	4471-4478	vanilla	FOOD\_LU[172]	
+21-15	4479-4483	bean	FOOD\_LU[172]	
+21-16	4483-4484	,	_	
+21-17	4485-4489	with	_	
+21-18	4490-4492	as	_	
+21-19	4493-4497	much	_	
+21-20	4498-4502	milk	FOOD\_LU	
+21-21	4503-4505	as	_	
+21-22	4506-4510	will	_	
+21-23	4511-4517	barely	_	
+21-24	4518-4523	cover	_	
+21-25	4524-4526	it	_	
+21-26	4526-4527	.	_	
+
+#Text=When the milk is strongly flavoured
+#Text=with the vanilla, strain it, and, when cold, add it to the beaten egg.
+22-1	4528-4532	When	_	
+22-2	4533-4536	the	_	
+22-3	4537-4541	milk	FOOD\_LU[173]|COOKING\_CREATION\_Food\_Material[174]	
+22-4	4542-4544	is	_	
+22-5	4545-4553	strongly	DESCR\_Neutral[175]	
+22-6	4554-4563	flavoured	DESCR\_Neutral[175]	
+22-7	4564-4568	with	_	
+22-8	4569-4572	the	_	
+22-9	4573-4580	vanilla	FOOD\_LU	
+22-10	4580-4581	,	_	
+22-11	4582-4588	strain	COOKING\_CREATION\_LU	
+22-12	4589-4591	it	_	
+22-13	4591-4592	,	_	
+22-14	4593-4596	and	_	
+22-15	4596-4597	,	_	
+22-16	4598-4602	when	_	
+22-17	4603-4607	cold	DESCR\_Neutral	
+22-18	4607-4608	,	_	
+22-19	4609-4612	add	_	
+22-20	4613-4615	it	_	
+22-21	4616-4618	to	_	
+22-22	4619-4622	the	_	
+22-23	4623-4629	beaten	COOKING\_CREATION\_LU[176]|DESCR\_Neutral[177]	
+22-24	4630-4633	egg	FOOD\_LU[178]|COOKING\_CREATION\_Food\_Material[179]	
+22-25	4633-4634	.	_	
+
+#Text=Then stir in, gradually, the sugar, spice, and flour, and proceed as
+#Text=above.
+23-1	4635-4639	Then	_	
+23-2	4640-4644	stir	_	
+23-3	4645-4647	in	_	
+23-4	4647-4648	,	_	
+23-5	4649-4658	gradually	_	
+23-6	4658-4659	,	_	
+23-7	4660-4663	the	_	
+23-8	4664-4669	sugar	FOOD\_LU	
+23-9	4669-4670	,	_	
+23-10	4671-4676	spice	FOOD\_LU	
+23-11	4676-4677	,	_	
+23-12	4678-4681	and	_	
+23-13	4682-4687	flour	FOOD\_LU	
+23-14	4687-4688	,	_	
+23-15	4689-4692	and	_	
+23-16	4693-4700	proceed	_	
+23-17	4701-4703	as	_	
+23-18	4704-4709	above	_	
+23-19	4709-4710	.	_	
+
+#Text=Baked Apples and Nuts. [20th]
+#Text=
+#Text=For a half dozen large apples a good 
+#Text=three-fourths cup of nut meats, butternuts, black walnuts or hickory 
+#Text=nuts--will be required.
+24-1	4713-4718	Baked	COOKING\_CREATION\_LU[180]|DESCR\_Neutral[181]	
+24-2	4719-4725	Apples	FOOD\_LU[182]|COOKING\_CREATION\_Food\_Material[183]	
+24-3	4726-4729	and	_	
+24-4	4730-4734	Nuts	FOOD\_LU[184]|COOKING\_CREATION\_Food\_Material[185]	
+24-5	4734-4735	.	_	
+24-6	4736-4737	[	_	
+24-7	4737-4741	20th	_	
+24-8	4741-4742	]	_	
+24-9	4744-4747	For	_	
+24-10	4748-4749	a	FOOD\_Count[186]	
+24-11	4750-4754	half	FOOD\_Count[186]	
+24-12	4755-4760	dozen	FOOD\_Unit	
+24-13	4761-4766	large	DESCR\_Positive	
+24-14	4767-4773	apples	FOOD\_LU	
+24-15	4774-4775	a	_	
+24-16	4776-4780	good	_	
+24-17	4782-4795	three-fourths	FOOD\_Count	
+24-18	4796-4799	cup	FOOD\_Unit	
+24-19	4800-4802	of	_	
+24-20	4803-4806	nut	FOOD\_LU[187]	
+24-21	4807-4812	meats	FOOD\_LU[187]	
+24-22	4812-4813	,	_	
+24-23	4814-4824	butternuts	FOOD\_LU	
+24-24	4824-4825	,	_	
+24-25	4826-4831	black	FOOD\_LU[188]|DESCR\_Neutral[189]	
+24-26	4832-4839	walnuts	FOOD\_LU[188]	
+24-27	4840-4842	or	_	
+24-28	4843-4850	hickory	FOOD\_LU[190]|DESCR\_Neutral[191]	
+24-29	4852-4856	nuts	FOOD\_LU[190]	
+24-30	4856-4857	-	_	
+24-31	4857-4858	-	_	
+24-32	4858-4862	will	_	
+24-33	4863-4865	be	_	
+24-34	4866-4874	required	_	
+24-35	4874-4875	.	_	
+
+#Text=Chop the meats fine and add a half cup of sugar.
+25-1	4876-4880	Chop	COOKING\_CREATION\_LU	
+25-2	4881-4884	the	_	
+25-3	4885-4890	meats	FOOD\_LU[192]|COOKING\_CREATION\_Food\_Material[193]	
+25-4	4891-4895	fine	_	
+25-5	4896-4899	and	_	
+25-6	4900-4903	add	_	
+25-7	4904-4905	a	FOOD\_Count[194]	
+25-8	4906-4910	half	FOOD\_Count[194]	
+25-9	4911-4914	cup	FOOD\_Unit	
+25-10	4915-4917	of	_	
+25-11	4918-4923	sugar	FOOD\_LU	
+25-12	4923-4924	.	_	
+
+#Text=Core the apples and fill the centres with the nuts and sugar.
+26-1	4926-4930	Core	COOKING\_CREATION\_LU	
+26-2	4931-4934	the	_	
+26-3	4935-4941	apples	FOOD\_LU[195]|COOKING\_CREATION\_Food\_Material[196]	
+26-4	4942-4945	and	_	
+26-5	4946-4950	fill	_	
+26-6	4951-4954	the	_	
+26-7	4955-4962	centres	_	
+26-8	4963-4967	with	_	
+26-9	4968-4971	the	_	
+26-10	4972-4976	nuts	FOOD\_LU	
+26-11	4977-4980	and	_	
+26-12	4981-4986	sugar	FOOD\_LU	
+26-13	4986-4987	.	_	
+
+#Text=Put in a 
+#Text=rather deep pan, with a cupful of boiling water added, bag and bake.
+27-1	4988-4991	Put	_	
+27-2	4992-4994	in	_	
+27-3	4995-4996	a	_	
+27-4	4998-5004	rather	_	
+27-5	5005-5009	deep	_	
+27-6	5010-5013	pan	_	
+27-7	5013-5014	,	_	
+27-8	5015-5019	with	_	
+27-9	5020-5021	a	COOKING\_CREATION\_Food\_Material[197]|FOOD\_Unit[198]	
+27-10	5022-5028	cupful	COOKING\_CREATION\_Food\_Material[197]|FOOD\_Unit[198]	
+27-11	5029-5031	of	COOKING\_CREATION\_Food\_Material[197]	
+27-12	5032-5039	boiling	COOKING\_CREATION\_Food\_Material[197]|COOKING\_CREATION\_LU[199]|DESCR\_Neutral[200]	
+27-13	5040-5045	water	COOKING\_CREATION\_Food\_Material[197]|FOOD\_LU[201]|COOKING\_CREATION\_Food\_Material[202]	
+27-14	5046-5051	added	_	
+27-15	5051-5052	,	_	
+27-16	5053-5056	bag	_	
+27-17	5057-5060	and	_	
+27-18	5061-5065	bake	COOKING\_CREATION\_LU	
+27-19	5065-5066	.	_	
+
+#Text=When tender remove carefully, place in a pretty dish, pour the juice 
+#Text=over the apples, and crown with whipped cream or a meringue made from 
+#Text=the whites of two eggs.
+28-1	5068-5072	When	_	
+28-2	5073-5079	tender	_	
+28-3	5080-5086	remove	_	
+28-4	5087-5096	carefully	_	
+28-5	5096-5097	,	_	
+28-6	5098-5103	place	_	
+28-7	5104-5106	in	_	
+28-8	5107-5108	a	_	
+28-9	5109-5115	pretty	_	
+28-10	5116-5120	dish	_	
+28-11	5120-5121	,	_	
+28-12	5122-5126	pour	_	
+28-13	5127-5130	the	_	
+28-14	5131-5136	juice	_	
+28-15	5138-5142	over	_	
+28-16	5143-5146	the	_	
+28-17	5147-5153	apples	FOOD\_LU	
+28-18	5153-5154	,	_	
+28-19	5155-5158	and	_	
+28-20	5159-5164	crown	_	
+28-21	5165-5169	with	_	
+28-22	5170-5177	whipped	FOOD\_LU[203]	
+28-23	5178-5183	cream	FOOD\_LU[203]	
+28-24	5184-5186	or	_	
+28-25	5187-5188	a	_	
+28-26	5189-5197	meringue	FOOD\_LU[204]|INGR\_Food\_Product[205]	
+28-27	5198-5202	made	COOKING\_CREATION\_LU	
+28-28	5203-5207	from	_	
+28-29	5209-5212	the	_	
+28-30	5213-5219	whites	INGR\_Material\_LU[206]|COOKING\_CREATION\_Food\_Material[207]|FOOD\_Constituent\_Part[208]	
+28-31	5220-5222	of	INGR\_Material\_LU[206]|COOKING\_CREATION\_Food\_Material[207]	
+28-32	5223-5226	two	INGR\_Material\_LU[206]|COOKING\_CREATION\_Food\_Material[207]|FOOD\_Count[209]	
+28-33	5227-5231	eggs	INGR\_Material\_LU[206]|COOKING\_CREATION\_Food\_Material[207]|FOOD\_LU[210]	
+28-34	5231-5232	.	_	
+
+#Text=Rye Bread Pudding. [20th]
+#Text=
+#Text=Toast stale rye bread to a golden brown, then roll 
+#Text=into fine crumbs.
+29-1	5236-5239	Rye	FOOD\_LU[211]	
+29-2	5240-5245	Bread	FOOD\_LU[211]	
+29-3	5246-5253	Pudding	FOOD\_LU[211]	
+29-4	5253-5254	.	_	
+29-5	5255-5256	[	_	
+29-6	5256-5260	20th	_	
+29-7	5260-5261	]	_	
+29-8	5263-5268	Toast	COOKING\_CREATION\_LU	
+29-9	5269-5274	stale	COOKING\_CREATION\_Food\_Material[212]|DESCR\_Neutral[213]	
+29-10	5275-5278	rye	COOKING\_CREATION\_Food\_Material[212]|FOOD\_LU[214]|DESCR\_Neutral[215]	
+29-11	5279-5284	bread	COOKING\_CREATION\_Food\_Material[212]|FOOD\_LU[214]	
+29-12	5285-5287	to	_	
+29-13	5288-5289	a	_	
+29-14	5290-5296	golden	_	
+29-15	5297-5302	brown	_	
+29-16	5302-5303	,	_	
+29-17	5304-5308	then	_	
+29-18	5309-5313	roll	_	
+29-19	5315-5319	into	_	
+29-20	5320-5324	fine	DESCR\_Neutral	
+29-21	5325-5331	crumbs	FOOD\_LU	
+29-22	5331-5332	.	_	
+
+#Text=Brush small custard cups or a mould with melted 
+#Text=butter, sprinkle over a few currants, raisins, prunes (cut fine) or 
+#Text=figs, then fill with crumbs.
+30-1	5333-5338	Brush	_	
+30-2	5339-5344	small	_	
+30-3	5345-5352	custard	_	
+30-4	5353-5357	cups	_	
+30-5	5358-5360	or	_	
+30-6	5361-5362	a	_	
+30-7	5363-5368	mould	_	
+30-8	5369-5373	with	_	
+30-9	5374-5380	melted	DESCR\_Neutral[216]|COOKING\_CREATION\_LU[217]	
+30-10	5382-5388	butter	FOOD\_LU[218]|COOKING\_CREATION\_Food\_Material[219]	
+30-11	5388-5389	,	_	
+30-12	5390-5398	sprinkle	_	
+30-13	5399-5403	over	_	
+30-14	5404-5405	a	_	
+30-15	5406-5409	few	_	
+30-16	5410-5418	currants	FOOD\_LU	
+30-17	5418-5419	,	_	
+30-18	5420-5427	raisins	FOOD\_LU	
+30-19	5427-5428	,	_	
+30-20	5429-5435	prunes	FOOD\_LU[220]|COOKING\_CREATION\_Food\_Material[221]	
+30-21	5436-5437	(	_	
+30-22	5437-5440	cut	DESCR\_Neutral[222]|COOKING\_CREATION\_LU[223]	
+30-23	5441-5445	fine	DESCR\_Neutral[222]|COOKING\_CREATION\_LU[223]	
+30-24	5445-5446	)	_	
+30-25	5447-5449	or	_	
+30-26	5451-5455	figs	FOOD\_LU	
+30-27	5455-5456	,	_	
+30-28	5457-5461	then	_	
+30-29	5462-5466	fill	_	
+30-30	5467-5471	with	_	
+30-31	5472-5478	crumbs	FOOD\_LU	
+30-32	5478-5479	.	_	
+
+#Text=Beat three eggs without separating until 
+#Text=light, add three tablespoonfuls of sugar, a pint of milk (with vanilla 
+#Text=or nutmeg to flavor) and pour carefully over the bread crumbs.
+31-1	5480-5484	Beat	COOKING\_CREATION\_LU	
+31-2	5485-5490	three	COOKING\_CREATION\_Food\_Material[224]|FOOD\_Count[225]	
+31-3	5491-5495	eggs	COOKING\_CREATION\_Food\_Material[224]|FOOD\_LU[226]	
+31-4	5496-5503	without	_	
+31-5	5504-5514	separating	_	
+31-6	5515-5520	until	_	
+31-7	5522-5527	light	DESCR\_Neutral	
+31-8	5527-5528	,	_	
+31-9	5529-5532	add	_	
+31-10	5533-5538	three	FOOD\_Count	
+31-11	5539-5553	tablespoonfuls	FOOD\_Unit	
+31-12	5554-5556	of	_	
+31-13	5557-5562	sugar	FOOD\_LU	
+31-14	5562-5563	,	_	
+31-15	5564-5565	a	FOOD\_Unit[227]	
+31-16	5566-5570	pint	FOOD\_Unit[227]	
+31-17	5571-5573	of	_	
+31-18	5574-5578	milk	FOOD\_LU	
+31-19	5579-5580	(	_	
+31-20	5580-5584	with	_	
+31-21	5585-5592	vanilla	FOOD\_LU	
+31-22	5594-5596	or	_	
+31-23	5597-5603	nutmeg	FOOD\_LU	
+31-24	5604-5606	to	_	
+31-25	5607-5613	flavor	_	
+31-26	5613-5614	)	_	
+31-27	5615-5618	and	_	
+31-28	5619-5623	pour	_	
+31-29	5624-5633	carefully	_	
+31-30	5634-5638	over	_	
+31-31	5639-5642	the	_	
+31-32	5643-5648	bread	FOOD\_LU[228]	
+31-33	5649-5655	crumbs	FOOD\_LU[228]	
+31-34	5655-5656	.	_	
+
+#Text=Let them 
+#Text=stand ten minutes, until the mixture has soaked into the crumbs; then 
+#Text=set in a paper bag in a pan of cold water and cook like a custard in the 
+#Text=oven.
+32-1	5657-5660	Let	_	
+32-2	5661-5665	them	_	
+32-3	5667-5672	stand	_	
+32-4	5673-5676	ten	_	
+32-5	5677-5684	minutes	_	
+32-6	5684-5685	,	_	
+32-7	5686-5691	until	_	
+32-8	5692-5695	the	_	
+32-9	5696-5703	mixture	_	
+32-10	5704-5707	has	_	
+32-11	5708-5714	soaked	_	
+32-12	5715-5719	into	_	
+32-13	5720-5723	the	_	
+32-14	5724-5730	crumbs	FOOD\_LU	
+32-15	5730-5731	;	_	
+32-16	5732-5736	then	_	
+32-17	5738-5741	set	_	
+32-18	5742-5744	in	_	
+32-19	5745-5746	a	_	
+32-20	5747-5752	paper	_	
+32-21	5753-5756	bag	_	
+32-22	5757-5759	in	_	
+32-23	5760-5761	a	_	
+32-24	5762-5765	pan	_	
+32-25	5766-5768	of	_	
+32-26	5769-5773	cold	COOKING\_CREATION\_Food\_Material[229]|DESCR\_Neutral[230]	
+32-27	5774-5779	water	COOKING\_CREATION\_Food\_Material[229]|FOOD\_LU[231]	
+32-28	5780-5783	and	_	
+32-29	5784-5788	cook	COOKING\_CREATION\_LU	
+32-30	5789-5793	like	_	
+32-31	5794-5795	a	_	
+32-32	5796-5803	custard	FOOD\_LU	
+32-33	5804-5806	in	_	
+32-34	5807-5810	the	_	
+32-35	5812-5816	oven	_	
+32-36	5816-5817	.	_	
+
+#Text=It will take about half an hour.
+33-1	5818-5820	It	_	
+33-2	5821-5825	will	_	
+33-3	5826-5830	take	_	
+33-4	5831-5836	about	_	
+33-5	5837-5841	half	_	
+33-6	5842-5844	an	_	
+33-7	5845-5849	hour	_	
+33-8	5849-5850	.	_	
+
+#Text=Test by slipping the blade of the 
+#Text=knife down the side of the bag.
+34-1	5851-5855	Test	_	
+34-2	5856-5858	by	_	
+34-3	5859-5867	slipping	_	
+34-4	5868-5871	the	_	
+34-5	5872-5877	blade	_	
+34-6	5878-5880	of	_	
+34-7	5881-5884	the	_	
+34-8	5886-5891	knife	_	
+34-9	5892-5896	down	_	
+34-10	5897-5900	the	_	
+34-11	5901-5905	side	_	
+34-12	5906-5908	of	_	
+34-13	5909-5912	the	_	
+34-14	5913-5916	bag	_	
+34-15	5916-5917	.	_	
+
+#Text=If it comes up clear, the pudding is 
+#Text=sufficiently baked.
+35-1	5918-5920	If	_	
+35-2	5921-5923	it	_	
+35-3	5924-5929	comes	_	
+35-4	5930-5932	up	_	
+35-5	5933-5938	clear	_	
+35-6	5938-5939	,	_	
+35-7	5940-5943	the	_	
+35-8	5944-5951	pudding	FOOD\_LU[232]|COOKING\_CREATION\_Food\_Product[233]	
+35-9	5952-5954	is	_	
+35-10	5956-5968	sufficiently	COOKING\_CREATION\_LU[234]	
+35-11	5969-5974	baked	COOKING\_CREATION\_LU[234]	
+35-12	5974-5975	.	_	
+
+#Text=Serve hot with lemon or egg sauce or fruit syrup.
+36-1	5976-5981	Serve	_	
+36-2	5982-5985	hot	_	
+36-3	5986-5990	with	_	
+36-4	5991-5996	lemon	FOOD\_LU	
+36-5	5997-5999	or	_	
+36-6	6000-6003	egg	FOOD\_LU[235]|INGR\_Food\_Product[236]|FOOD\_LU[237]|INGR\_Material\_LU[238]	
+36-7	6004-6009	sauce	FOOD\_LU[235]|INGR\_Food\_Product[236]	
+36-8	6010-6012	or	_	
+36-9	6013-6018	fruit	FOOD\_LU[239]|INGR\_Food\_Product[240]|FOOD\_LU[241]|INGR\_Material\_LU[242]	
+36-10	6019-6024	syrup	FOOD\_LU[239]|INGR\_Food\_Product[240]	
+36-11	6024-6025	.	_	
+
+#Text=Tapioca Apple Pudding. [20th]
+#Text=
+#Text=Soak one cupful tapioca in three pints cold water over night.
+37-1	6028-6035	Tapioca	FOOD\_LU[243]	
+37-2	6036-6041	Apple	FOOD\_LU[243]	
+37-3	6042-6049	Pudding	FOOD\_LU[243]	
+37-4	6049-6050	.	_	
+37-5	6051-6052	[	_	
+37-6	6052-6056	20th	_	
+37-7	6056-6057	]	_	
+37-8	6059-6063	Soak	COOKING\_CREATION\_LU	
+37-9	6064-6067	one	COOKING\_CREATION\_Food\_Material[244]|FOOD\_Count[245]	
+37-10	6068-6074	cupful	COOKING\_CREATION\_Food\_Material[244]|FOOD\_Unit[246]	
+37-11	6075-6082	tapioca	COOKING\_CREATION\_Food\_Material[244]|FOOD\_LU[247]	
+37-12	6083-6085	in	_	
+37-13	6086-6091	three	COOKING\_CREATION\_Food\_Material[248]|FOOD\_Count[249]	
+37-14	6092-6097	pints	COOKING\_CREATION\_Food\_Material[248]|FOOD\_Unit[250]	
+37-15	6098-6102	cold	COOKING\_CREATION\_Food\_Material[248]|DESCR\_Neutral[251]	
+37-16	6103-6108	water	COOKING\_CREATION\_Food\_Material[248]|FOOD\_LU[252]	
+37-17	6109-6113	over	_	
+37-18	6114-6119	night	_	
+37-19	6119-6120	.	_	
+
+#Text=In the morning put on to boil and cook twenty or thirty minutes, 
+#Text=until it looks clear.
+38-1	6122-6124	In	_	
+38-2	6125-6128	the	_	
+38-3	6129-6136	morning	_	
+38-4	6137-6140	put	_	
+38-5	6141-6143	on	_	
+38-6	6144-6146	to	_	
+38-7	6147-6151	boil	COOKING\_CREATION\_LU	
+38-8	6152-6155	and	_	
+38-9	6156-6160	cook	COOKING\_CREATION\_LU	
+38-10	6161-6167	twenty	_	
+38-11	6168-6170	or	_	
+38-12	6171-6177	thirty	_	
+38-13	6178-6185	minutes	_	
+38-14	6185-6186	,	_	
+38-15	6188-6193	until	_	
+38-16	6194-6196	it	_	
+38-17	6197-6202	looks	_	
+38-18	6203-6208	clear	DESCR\_Neutral	
+38-19	6208-6209	.	_	
+
+#Text=Add a quart and a half peeled and 
+#Text=quartered apples, one cup of sugar, a teaspoonful salt, and lemon juice 
+#Text=or extract to flavor.
+39-1	6210-6213	Add	_	
+39-2	6214-6215	a	FOOD\_Unit[253]	
+39-3	6216-6221	quart	FOOD\_Unit[253]	
+39-4	6222-6225	and	_	
+39-5	6226-6227	a	FOOD\_Count[254]	
+39-6	6228-6232	half	FOOD\_Count[254]	
+39-7	6233-6239	peeled	DESCR\_Neutral[255]|COOKING\_CREATION\_LU[256]	
+39-8	6240-6243	and	_	
+39-9	6245-6254	quartered	DESCR\_Neutral[257]|COOKING\_CREATION\_LU[258]	
+39-10	6255-6261	apples	FOOD\_LU[259]|COOKING\_CREATION\_Food\_Material[260]	
+39-11	6261-6262	,	_	
+39-12	6263-6266	one	FOOD\_Count	
+39-13	6267-6270	cup	FOOD\_Unit	
+39-14	6271-6273	of	_	
+39-15	6274-6279	sugar	FOOD\_LU	
+39-16	6279-6280	,	_	
+39-17	6281-6282	a	FOOD\_Unit[261]	
+39-18	6283-6294	teaspoonful	FOOD\_Unit[261]	
+39-19	6295-6299	salt	FOOD\_LU	
+39-20	6299-6300	,	_	
+39-21	6301-6304	and	_	
+39-22	6305-6310	lemon	FOOD\_LU[262]|INGR\_Food\_Product[263]|FOOD\_LU[264]|INGR\_Material\_LU[265]	
+39-23	6311-6316	juice	FOOD\_LU[262]|INGR\_Food\_Product[263]	
+39-24	6318-6320	or	_	
+39-25	6321-6328	extract	FOOD\_LU[266]|INGR\_Food\_Product[267]	
+39-26	6329-6331	to	_	
+39-27	6332-6338	flavor	_	
+39-28	6338-6339	.	_	
+
+#Text=Turn into a buttered dish, put in bag and bake an 
+#Text=hour in a moderate oven.
+40-1	6340-6344	Turn	_	
+40-2	6345-6349	into	_	
+40-3	6350-6351	a	_	
+40-4	6352-6360	buttered	_	
+40-5	6361-6365	dish	_	
+40-6	6365-6366	,	_	
+40-7	6367-6370	put	_	
+40-8	6371-6373	in	_	
+40-9	6374-6377	bag	_	
+40-10	6378-6381	and	_	
+40-11	6382-6386	bake	COOKING\_CREATION\_LU	
+40-12	6387-6389	an	_	
+40-13	6391-6395	hour	_	
+40-14	6396-6398	in	_	
+40-15	6399-6400	a	_	
+40-16	6401-6409	moderate	_	
+40-17	6410-6414	oven	_	
+40-18	6414-6415	.	_	
+
+#Text=When cold serve with cream and sugar.
+41-1	6416-6420	When	_	
+41-2	6421-6425	cold	_	
+41-3	6426-6431	serve	_	
+41-4	6432-6436	with	_	
+41-5	6437-6442	cream	FOOD\_LU	
+41-6	6443-6446	and	_	
+41-7	6447-6452	sugar	FOOD\_LU	
+41-8	6452-6453	.	_	
