@@ -1,4 +1,4 @@
-# Multi-task
+# Multi-task + lexical baseline
 
 Span-level sequence labelling of food entities and their uses (`FOOD_ENTITY`, `FOOD_ATTRIBUTES`,
 `DESCRIPTOR`, `COOKING_CREATION`, `PRESERVING`, `CURE`), one BIO task per frame with
@@ -50,3 +50,13 @@ Scores are span-level, exact match, nested spans included.
 
 `folds/` contains the folds used in the paper; `multi_results/` the summaries of all systems
 and notebooks to compare them.
+
+## Baseline
+## Lexical baseline
+
+`lexical_baseline.py` labels spans regardless of context. For each fold and frame, every lowercased annotated form in train + dev is mapped to its majority label, with unannotated occurrences counted as `O` (forms whose majority is `O` are discarded). The lexicon is then applied to the test set with greedy longest match.
+
+```bash
+python3 lexical_baseline.py --folds-dir cv5/ --outdir cv5_lexical/
+python3 machamp_cv/evaluate_cv.py --folds-dir cv5_lexical/
+```
