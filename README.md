@@ -27,6 +27,7 @@ See `revised_annotation_guidelines.pdf` for the full guidelines.
 data/english/
   gold_final.tsv          gold standard (810 sentences): LLM pre-annotation + manual correction
   gold_pilot.tsv          pilot sentences annotated from scratch
+  gpt_output_raw.tsv      uncorrected GPT-5.5 pre-annotations of the corrected portion
   llm results/            outputs of the seven LLMs compared as pre-annotators
 data/dutch/               Dutch data
 prompts/english/          two-stage prompting pipeline (food entities, then one frame per prompt)
