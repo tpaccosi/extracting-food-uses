@@ -51,7 +51,8 @@ Scores are span-level, exact match, nested spans included.
 `folds/` contains the folds used in the paper; `multi_results/` the summaries of all systems
 and notebooks to compare them.
 
-## Baseline
+---------------------------------------------------------------------------------------------------------------------------------------
+
 ## Lexical baseline
 
 `lexical_baseline.py` labels spans regardless of context. For each fold and frame, every lowercased annotated form in train + dev is mapped to its majority label, with unannotated occurrences counted as `O` (forms whose majority is `O` are discarded). The lexicon is then applied to the test set with greedy longest match.
