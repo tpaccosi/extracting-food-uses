@@ -1,4 +1,4 @@
-# Multiclass (HuggingFace) vs. multi-task (MaChAmp): same folds, same evaluation
+# Multiclass (HuggingFace)
 
 The multi-task system lives in `machamp_cv/`. This folder adds the multiclass counterpart:
 a HuggingFace transformer that predicts **one class per token**, i.e. the combination of the
