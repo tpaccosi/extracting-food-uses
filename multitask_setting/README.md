@@ -1,4 +1,4 @@
-# Multi-task food-frame labelling with MaChAmp (5-fold CV)
+# Multi-task
 
 Span-level sequence labelling of food entities and their uses (`FOOD_ENTITY`, `FOOD_ATTRIBUTES`,
 `DESCRIPTOR`, `COOKING_CREATION`, `PRESERVING`, `CURE`), one BIO task per frame with
