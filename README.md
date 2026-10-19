@@ -72,5 +72,4 @@ over the 5 folds and pooled out-of-fold.
 
 ## License
 
-Released under CC0 1.0 (see `LICENSE`). Source texts are from
-[Project Gutenberg](https://www.gutenberg.org).
+See ``` LICENSE.md ```
