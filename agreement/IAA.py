@@ -11,23 +11,30 @@ folder and pooled over all folders.
 Unit of analysis: token x frame. For each token and frame, the value is the set
 of labels of that frame covering the token (span ids such as [12] and B/I
 position are ignored; nested spans with the same label count once), or "O" if
-none. Alpha is nominal, computed from the coincidence matrix (two coders, no
-missing values). "Overall" pools all token x frame units of the selected frames.
+none. Alpha is nominal and is computed with the `krippendorff` package
+(pip install krippendorff), two coders and no missing values. "Overall" pools all token x frame units of the selected frames.
 
 As a complement, span-level agreement is reported as F1 between the two
 annotators (exact boundaries and label; symmetric, so no annotator is gold).
 
 Usage:
-  python3 iaa_krippendorff.py folder1 folder2 folder3
-  python3 iaa_krippendorff.py root_dir --recursive        # every sub-folder with 2 .tsv
-  python3 iaa_krippendorff.py ... --frames new             # only new-scheme frames (default)
-  python3 iaa_krippendorff.py ... --frames all             # also INGREDIENT, INGESTION
+  python3 IAA.py folder1 folder2 folder3
+  python3 IAA.py root_dir --recursive        # every sub-folder with 2 .tsv
+  python3 IAA.py ... --frames new             # only new-scheme frames (default)
+  python3 IAA.py ... --frames all             # also INGREDIENT, INGESTION
 """
 import argparse
 import collections
 import glob
 import os
 import re
+
+import numpy as np
+
+try:
+    import krippendorff
+except ImportError:
+    raise SystemExit("this script needs the krippendorff package: pip install krippendorff")
 
 # label prefix -> frame (checked in order; FOOD_LU before the other FOOD_ labels)
 FRAME_OF = [
@@ -104,23 +111,16 @@ def spans(toks):
 
 # ---------------------------------------------------------------- alpha
 def nominal_alpha(pairs):
-    """Krippendorff's alpha (nominal) for two coders, no missing values.
-    pairs: list of (value_coder1, value_coder2)."""
+    """Krippendorff's alpha (nominal) with the krippendorff package.
+    pairs: list of (value_coder1, value_coder2); string values are mapped to integer codes."""
     if not pairs:
         return float("nan")
-    o = collections.Counter()                      # coincidence matrix
-    for a, b in pairs:
-        o[a, b] += 1
-        o[b, a] += 1
-    n_c = collections.Counter()
-    for (a, _), c in o.items():
-        n_c[a] += c
-    n = sum(n_c.values())                          # = 2 * units
-    d_o = sum(c for (a, b), c in o.items() if a != b) / n
-    d_e = (n * n - sum(v * v for v in n_c.values())) / (n * (n - 1))
-    if d_e == 0:
+    codes = {v: i for i, v in enumerate(sorted({x for p in pairs for x in p}))}
+    if len(codes) < 2:
         return float("nan")                        # no variation (e.g. frame never annotated)
-    return 1 - d_o / d_e
+    data = np.array([[codes[a] for a, _ in pairs],
+                     [codes[b] for _, b in pairs]], dtype=float)
+    return float(krippendorff.alpha(reliability_data=data, level_of_measurement="nominal"))
 
 
 def span_f1(s1, s2):
