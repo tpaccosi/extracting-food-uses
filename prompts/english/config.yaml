@@ -1,0 +1,502 @@
+# ---------------------------------------------------------------------------
+# General, cross-frame rules (rendered verbatim near the top of the prompt).
+# Per-frame special cases live in each frame's own `note` field below.
+# ---------------------------------------------------------------------------
+general_rules: >
+  SPAN RULES (apply to every frame element in every frame EXCEPT FOOD_LU
+  itself, which follows its own separate rule of excluding the
+  determiner): include adjectives, quantifiers, and other modifiers of
+  the head noun in the same FE span. Always EXCLUDE articles (a, an, the)
+  and personal/possessive pronouns (I, you, he, she, it, we, they, my,
+  your, his, her, its, our, their) from FE spans, even when they sit
+  right next to a modifier that IS included. E.g. "melt [ten pound of
+  sugar]" -- the FE span includes the quantity phrase "ten pound of" --
+  but "strain your [water]" -- the FE span is just "water", excluding
+  "your".
+
+# ---------------------------------------------------------------------------
+# Frame schema
+# ---------------------------------------------------------------------------
+# Each entry under `frames` becomes one output column (its key becomes the
+# TSV header AND, lowercased, the JSON key the model must return, e.g.
+# FOOD -> "food_tags"). ORDER HERE = COLUMN ORDER IN THE OUTPUT TSV.
+#
+# IMPORTANT: this is a DOUBLE ANNOTATION scheme across DIFFERENT frames,
+# not a relabeling scheme. A token that is FOOD_LU in the FOOD frame KEEPS
+# that tag in the FOOD column. If that same food entity is also an
+# argument of another frame instance (PRESERVING, CURE, INGESTION...), it
+# gets an ADDITIONAL, independent tag in that frame's own column -- the
+# FOOD column is never overwritten.
+#
+# Within a SINGLE frame's own column, only one tag per token is possible.
+# Where two of a frame's own labels would nest on the same tokens (see
+# each frame's `note`), a priority rule decides which one is tagged.
+#
+# `is_lu: true` marks the label that identifies the frame-triggering
+# lexical unit within that frame.
+# `has_lu: false` marks an attribute-only frame with no separate trigger
+# word (its labels are annotated directly on the qualifying span).
+#
+# NOTE: the USING frame is intentionally NOT included here. Per the
+# guidelines it is a prototypical reference model only -- it structures
+# CURE/INGESTION conceptually but "should not be annotated in the texts".
+frames:
+  FOOD:
+    description: >
+      The exemplar frame: any word referring to a food item (per an
+      extended OED definition -- not restricted to consumption; includes
+      non-ingestive uses, e.g. applied externally).
+    note: >
+      FOOD_LU includes solid/prepared substances that are food entities
+      in their own right, e.g. "dough" and "paste" ARE annotated as
+      FOOD_LU. Generic process-result nouns such as "mixture",
+      "dripping", "dressing" are NOT annotated as FOOD_LU even when they
+      refer to a food substance. For a material-to-product compound like
+      "vegetable oil", "vegetable" and "vegetable oil" are BOTH tagged
+      FOOD_LU here; see the INGREDIENT frame's note for how the
+      corresponding pipe-joined tag works in that column. When a
+      compound instead names a specific TYPE of food rather than a
+      material-product relation (e.g. "loaf sugar", "crisp bread", "cane
+      sugar"), do NOT split it: tag the whole compound as a single
+      FOOD_LU and tag its modifier (loaf/crisp/cane) as DESCRIPTOR
+      instead.
+    labels:
+      - name: FOOD_LU
+        is_lu: true
+        definition: >
+          Word(s) referring to a food item / any exemplar of food.
+          Annotate the food entity without the determiner, unless the
+          determiner is indispensable to define the entity.
+      - name: FOOD_Constituent_Part
+        definition: >
+          A part or component of a FOOD_LU. Annotate the full relevant
+          span, including any descriptor of the part in the SAME span,
+          rather than a single word (e.g. "yellow rind" as one span in
+          "grate the yellow rind of lemon", or "a thick peel" in "a
+          banana with a thick peel"). Like FOOD_LU, a constituent part is
+          itself treated as a food entity: it can be re-annotated in
+          another frame's column when it participates there (e.g. as
+          COOKING_CREATION_Food_Material or CURE_Food_Treatment).
+      - name: FOOD_Count
+        definition: >
+          The number of units of the measured FOOD_LU. Annotate
+          numerical expressions (e.g. "two") as well as vague-quantity
+          expressions such as "enough", "a little", "some", "a few",
+          and quantifiers implying a small non-specific number (several,
+          many, dozens) depending on context.
+      - name: FOOD_Unit
+        definition: >
+          The standardized quantity in which a FOOD_LU is measured (e.g.
+          grams, liters, slice, piece, chop, morsel, layers). Expressions
+          like "a spoonful", "a drop", "a pinch" are annotated entirely
+          as Unit, including the determiner "a".
+
+  DESCRIPTOR:
+    has_lu: false   # attribute-only frame: no separate trigger word.
+    description: >
+      A characteristic, description, or type of a food entity, typed by
+      polarity. Comes from a separate qualia dimension than the FOOD
+      frame itself, so it is annotated as its own independent sequence.
+    note: >
+      Only annotate a DESCRIPTOR when there is a FOOD_LU nearby that it
+      describes -- a stand-alone adjective with no associated food entity
+      in the expression is not tagged. Usually an adjective or a type
+      specification functioning like a compound modifier, e.g. "Hamburg
+      steak", "Spring Chicken", "cane sugar", "loaf sugar". When the
+      modifying word is ITSELF the trigger of another frame -- typically
+      a participial/attributive verb-form describing a process, e.g.
+      "planked fish", "boiling water", "beaten egg" -- tag it as
+      DESCRIPTOR here AND, independently, as that other frame's LU in its
+      own column (e.g. COOKING_CREATION_LU for "planked"/"boiling"/
+      "beaten").
+    labels:
+      - name: DESCR_Positive
+        definition: >
+          A positive characteristic, description, or type of a food
+          entity (intensity, volume/reach, duration, state, character,
+          hedonic quality). Include intensifying modifiers in the same
+          span (e.g. "really delicious").
+      - name: DESCR_Negative
+        definition: >
+          A negative characteristic/description/type of a food entity,
+          same annotation rules as DESCR_Positive.
+      - name: DESCR_Neutral
+        definition: >
+          A neutral characteristic/description/type of a food entity
+          (this covers most process-descriptive adjectives like
+          "boiling" or "planked"), same annotation rules as
+          DESCR_Positive.
+
+  # INGREDIENT:
+  #   description: >
+  #     A Material (food) is used to create a Product (also food), e.g.
+  #     "potato mash is composed of potatoes".
+  #   note: >
+  #     Triggered by the material ENTITY itself, not by a verb:
+  #     INGR_Material_LU is simultaneously this frame's lexical unit and
+  #     its Material argument. Only annotate this frame when a
+  #     compositional/recipe-like relation is clearly described (an
+  #     ingredient list, a recipe step) or when the material sits very
+  #     close to (modifying) an INGR_Food_Product.
+  #     NESTED COMPOUNDS: when Material and Product are adjacent words
+  #     fused into one compound (e.g. "vegetable oil", "orange cake"), tag
+  #     the FIRST token of that compound with BOTH tags pipe-joined:
+  #     "B-INGR_Food_Product|B-INGR_Material_LU" (it starts both the
+  #     Product span and the one-token Material span at once); continue
+  #     the rest of the compound with the Product tag alone (e.g.
+  #     "I-INGR_Food_Product"), since the Material span was just that one
+  #     word. If the same material ALSO occurs separately elsewhere in the
+  #     sentence, outside the fused compound, tag that separate occurrence
+  #     as INGR_Material_LU normally (no pipe needed there). E.g. in
+  #     "vegetable oil, olive, or cotton seed [oil]": "vegetable" ->
+  #     B-INGR_Food_Product|B-INGR_Material_LU, "oil" -> I-INGR_Food_Product;
+  #     "olive" and "cotton seed" -> INGR_Material_LU each on their own (no
+  #     product word follows them, so no compound to fuse into). Likewise
+  #     "juice of the lemon" -> "juice" is INGR_Food_Product, "lemon" is
+  #     INGR_Material_LU, tagged separately with no pipe, since "of the" in
+  #     between means they are NOT fused into one compound.
+  #     BOUNDARY WITH COOKING_CREATION (self-contained -- also see that
+  #     frame's own note if it's present in this call): a raw food that is
+  #     DIRECTLY undergoing a culinary process in a single step (e.g. "boil
+  #     potatoes") is COOKING_CREATION_Food_Material, NOT INGR_Material_LU.
+  #     Reserve INGR_Material_LU for food items being COMBINED as
+  #     components of a larger product (a recipe's ingredient list, a
+  #     compound like "orange cake"), where no single-step transformation
+  #     verb is directly acting on that specific item alone.
+  #   labels:
+  #     - name: INGR_Material_LU
+  #       is_lu: true
+  #       definition: >
+  #         The food entity used to make a Product; both the frame's
+  #         lexical unit and its Material argument at once. Annotate the
+  #         single food entity without the determiner -- re-annotate (in
+  #         this column) what is already FOOD_LU in the FOOD column.
+  #     - name: INGR_Food_Product
+  #       definition: >
+  #         The entity or substance created out of the Material. Annotate
+  #         the single food entity without the determiner -- re-annotate
+  #         (in this column) what is already FOOD_LU in the FOOD column.
+
+  COOKING_CREATION:
+    description: >
+      Food/meal preparation and manipulation by an agent, either creating
+      or modifying it (aggregates the FrameNet frames Cooking_creation
+      and Apply_heat into one).
+    note: >
+      LUs include: bake, baking, barbecue, blanch, boil, boiling, braise,
+      broil, brown, char, coddle, concoct, cook, cooking, deep fry, fix,
+      fry, frying, grill, grilling, make, melt, melting, microwave,
+      parboil, plank, poach, prepare, preparation, put together, roast,
+      roasting, saute, scald, scorch, sear, simmer, simmering, singe,
+      steam, steaming, steep, stew, stewing, toast, toasting, whip up.
+      EXCLUDED: verbs describing an action that does NOT change/transform
+      the food are NOT annotated as COOKING_CREATION_LU -- e.g. mix,
+      stir, sprinkle, put, pour, add, shake.
+      A COOKING_CREATION_LU can include its own adverbial modifier as one
+      span, e.g. "[season lightly]", "[chop finely]".
+      If the LU word is itself a participial/attributive adjective
+      describing the food (e.g. "planked fish", "boiling water", "beaten
+      egg"), tag it as COOKING_CREATION_LU here AND as DESCRIPTOR in that
+      column, and tag the food noun it modifies as FOOD_LU +
+      COOKING_CREATION_Food_Material.
+      COOKING_CREATION_Food_Material vs INGREDIENT: use
+      COOKING_CREATION_Food_Material only for the raw food DIRECTLY
+      undergoing the process named by COOKING_CREATION_LU in a
+      single-step transformation (e.g. "boil potatoes"). When a verb like
+      "bake"/"make" produces a FINAL PRODUCT out of several combined
+      ingredients, tag the final product as COOKING_CREATION_Food_Product
+      and tag each combined ingredient as FOOD_LU + INGR_Material_LU
+      (NOT as COOKING_CREATION_Food_Material). E.g. "to make orange cake
+      take two oranges, butter and sugar": "orange cake" ->
+      FOOD_LU + INGR_Food_Product + COOKING_CREATION_Food_Product (one
+      fused span, per the INGREDIENT nesting rule); "oranges", "butter",
+      "sugar" -> FOOD_LU + INGR_Material_LU each; "two" -> FOOD_Count;
+      "make" -> COOKING_CREATION_LU. "orange" itself, as the first token
+      of the fused "orange cake" compound, gets the pipe-joined
+      "B-INGR_Food_Product|B-INGR_Material_LU" in the INGREDIENT column
+      per that frame's nested-compound rule; "cake" continues with
+      "I-INGR_Food_Product" alone. No COOKING_CREATION_Food_Material is
+      tagged anywhere in that sentence.
+      IF INGREDIENT IS NOT PART OF THIS CALL: the classification rule
+      above (single-step direct transformation -> COOKING_CREATION_
+      Food_Material; combined ingredients of a final product -> leave
+      untagged here, that's INGR_Material_LU's job in a separate call)
+      still applies -- just don't tag anything as INGR_Material_LU
+      yourself, since that label isn't in this call's schema.
+    labels:
+      - name: COOKING_CREATION_LU
+        is_lu: true
+        definition: >
+          Every word which evokes the cooking/culinary manipulation
+          process, whether it emphasizes the process (e.g. boiling
+          potatoes) or the resulting edible entity (e.g. baking a pie).
+      - name: COOKING_CREATION_Cook
+        definition: >
+          The person who prepares the Produced_Food. Annotate including
+          determiners/specifications (e.g. "the chef", "this cook",
+          "my dad").
+      - name: COOKING_CREATION_Food_Product
+        definition: >
+          The resulting food produced by the culinary effort. Annotate
+          the single food entity without the determiner -- re-annotate
+          (in this column) what is already FOOD_LU in the FOOD column.
+      - name: COOKING_CREATION_Food_Material
+        definition: >
+          The raw food directly undergoing a single-step culinary
+          process (see the frame note for the boundary with
+          INGR_Material_LU). Annotate the single food entity without the
+          determiner -- re-annotate (in this column) what is already
+          FOOD_LU in the FOOD column.
+
+  PRESERVING:
+    description: >
+      An Agent preserves a Patient (food) to prevent it from decaying,
+      possibly using a Medium.
+    note: >
+      LUs include: can, cure, dry, pickle, preservation, preserve, 
+      salt, tinned, smoke, buccan, bucan, pot, kipper, collar, souse
+    labels:
+      - name: PR_LU
+        is_lu: true
+        definition: >
+          Every word expressing the act of preserving something from
+          decaying (e.g. can, cure, dry, pickle, preserve, salt, smoke,
+          tinned).
+      - name: PR_Agent
+        definition: >
+          The person performing the intentional act that leads to the
+          preservation. Annotate including determiners/specifications
+          (e.g. "my mom", "his brother").
+      - name: PR_Medium
+        definition: >
+          The substance in which the Patient might be submerged or
+          treated to be preserved; also any means, instrument, or METHOD
+          used to preserve (e.g. dehydrator, sun, "household methods").
+          Annotate including determiners/specifications (e.g. "the
+          smoke", "this can", "those tins", "household methods").
+      - name: PR_Food_Patient
+        definition: >
+          The organic or non-organic matter that undergoes preservation
+          (in this case, food). Annotate the single food entity without
+          the determiner -- re-annotate (in this column) what is already
+          FOOD_LU in the FOOD column.
+
+  CURE:
+    description: >
+      A Healer treats/cures an Affliction affecting a Patient, using a
+      food item as Treatment/Medication (aggregated here into a single
+      FE, Food_Treatment).
+    note: >
+      LUs include: alleviate, cure, ease, heal, improve, nurse, palliate,
+      palliative, rehabilitate, remedy, resuscitate, soothe, subdue,
+      therapy, treat, treatment.
+      METONYMIC / IMPLICIT LU: when there is no explicit CURE_LU verb,
+      the construction "used for/as", "is good for", "excellent for", or
+      simply a pronoun + "for" can itself function as CURE_LU. When NONE
+      of these are present either, but the sentence clearly describes a
+      food used as a medicine, the Affliction or Patient noun ITSELF
+      functions as the LU: tag it with its FE label pipe-joined with
+      CURE_LU, e.g. "B-CURE_Affliction|B-CURE_LU". If BOTH an Affliction
+      and a Patient are present, only the AFFLICTION gets this extra
+      CURE_LU pipe-tag (never the Patient), even though both FE spans are
+      still tagged normally.
+      NESTED PATIENT/AFFLICTION: a Patient phrase often syntactically
+      contains its Affliction (e.g. "sufferers from the gout"). Tag the
+      whole Patient phrase with CURE_Patient as normal, and on the
+      token(s) where the Affliction sits, pipe-join it with the ongoing
+      Patient tag, e.g. "I-CURE_Patient|B-CURE_Affliction|B-CURE_LU" (the
+      last part only if this is also the implicit-LU case above). Only
+      tag CURE_Patient alone (no pipe) when it is a genuinely separate
+      span not wrapped around an Affliction, e.g. "my dad" in "my dad
+      takes honey for his cough" (Affliction = "his cough", Patient = "my
+      dad", no overlap).
+    labels:
+      - name: CURE_LU
+        is_lu: true
+        definition: >
+          Every word (or "used for/as"-type construction) expressing the
+          act of treating or curing an affliction. See the frame note for
+          when it is pipe-joined onto an Affliction/Patient token instead
+          of appearing on its own.
+      - name: CURE_Affliction
+        definition: >
+          The disease, injury, or condition suffered by the Patient.
+          Annotate including determiners/specifications (e.g. "the
+          plague", "the worst fever I have ever had"). May be pipe-joined
+          with CURE_LU -- see the frame note.
+      - name: CURE_Body_Part
+        definition: >
+          The specific area of the Patient's body being treated. Annotate
+          including determiners/specifications (e.g. "on the body",
+          "his arms").
+      - name: CURE_Healer
+        definition: >
+          The person who treats or cures the Patient. Annotate including
+          determiners/specifications (e.g. "Persian doctors",
+          "my mother").
+      - name: CURE_Food_Treatment
+        definition: >
+          The ingested/applied/injected substance (food) designed to cure
+          the Patient. Annotate the single food entity without the
+          determiner -- re-annotate (in this column) what is already
+          FOOD_LU in the FOOD column.
+      - name: CURE_Patient
+        definition: >
+          The sufferer of the injury/disease/pain. Annotate including
+          determiners/specifications (e.g. "sufferers from the gout",
+          "my dad"). When this span contains an Affliction, pipe-join
+          the Affliction tag onto the relevant token(s) rather than
+          dropping either -- see the frame note.
+
+  # INGESTION:
+  #   description: >
+  #     An Ingestor (person or animal) consumes a food or drink item
+  #     (Food_Ingestible).
+  #   note: >
+  #     LUs include: breakfast, consume, devour, dine, down, drink, eat,
+  #     feast, feed, gobble, gulp, guzzle, have, imbibe, ingest, lap, lunch,
+  #     munch, nibble, nosh, quaff, sip, slurp, snack, sup, swig, swill,
+  #     tuck. Unlike other frames, pronouns referring to a person/animal
+  #     (he, she, one, etc.) should also be annotated as Ingestor.
+  #   labels:
+  #     - name: INGESTION_LU
+  #       is_lu: true
+  #       definition: >
+  #         Every word expressing the act of eating or drinking.
+  #     - name: INGESTION_Food_Ingestible
+  #       definition: >
+  #         The entity being consumed by the Ingestor. Annotate the single
+  #         food entity without the determiner -- re-annotate (in this
+  #         column) what is already FOOD_LU in the FOOD column.
+  #     - name: INGESTION_Ingestor
+  #       definition: >
+  #         The person or animal eating or drinking (including pronouns
+  #         referring to a person/animal). Annotate including
+  #         determiners/specifications (e.g. "Italians", "my friend
+  #         Abigail").
+
+# ---------------------------------------------------------------------------
+# Few-shot examples. Every example must include a key for every frame
+# above, even if all-"O". Order of keys doesn't matter, only the frame's
+# json_key name and per-token array length (= number of tokens).
+# ---------------------------------------------------------------------------
+  - text: "Take two ounces of orange peel, a spoonful of honey and the yolks of three eggs."
+    tokens: ["Take", "two", "ounces", "of", "orange", "peel", ",", "a", "spoonful", "of", "honey", "and", "the", "yolks", "of", "three", "eggs", "."]
+    food_entity_tags:       ["O", "O", "O", "O", "B-FOOD_LU", "O", "O", "O", "O", "O", "B-FOOD_LU", "O", "O", "O", "O", "O", "B-FOOD_LU", "O"]
+    food_attributes_tags:   ["O", "B-FOOD_Count", "B-FOOD_Unit", "O", "O", "B-FOOD_Constituent_Part", "O", "B-FOOD_Unit", "I-FOOD_Unit", "O", "O", "O", "O", "B-FOOD_Constituent_Part", "O", "B-FOOD_Count", "O", "O"]
+    descriptor_tags:        ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
+    cooking_creation_tags:  ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
+    preserving_tags:        ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
+    cure_tags:              ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
+
+  few_shot_examples:
+  - text: "I pickle my cucumbers in vinegar."
+    tokens: ["I", "pickle", "my", "cucumbers", "in", "vinegar", "."]
+    food_entity_tags:       ["O", "O", "O", "B-FOOD_LU", "O", "B-FOOD_LU", "O"]
+    food_attributes_tags:   ["O", "O", "O", "O", "O", "O", "O"]
+    descriptor_tags:        ["O", "O", "O", "O", "O", "O", "O"]
+    cooking_creation_tags:  ["O", "O", "O", "O", "O", "O", "O"]
+    preserving_tags:        ["O", "B-PR_LU", "O", "B-PR_Food_Patient", "O", "B-PR_Medium", "O"]
+    cure_tags:              ["O", "O", "O", "O", "O", "O", "O"]
+
+  - text: "My mother smokes two pounds of salmon in the old smokehouse."
+    tokens: ["My", "mother", "smokes", "two", "pounds", "of", "salmon", "in", "the", "old", "smokehouse", "."]
+    food_entity_tags:       ["O", "O", "O", "O", "O", "O", "B-FOOD_LU", "O", "O", "O", "O", "O"]
+    food_attributes_tags:   ["O", "O", "O", "B-FOOD_Count", "B-FOOD_Unit", "O", "O", "O", "O", "O", "O", "O"]
+    descriptor_tags:        ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
+    cooking_creation_tags:  ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
+    preserving_tags:        ["O", "O", "B-PR_LU", "O", "O", "O", "B-PR_Food_Patient", "O", "B-PR_Medium", "I-PR_Medium", "I-PR_Medium", "O"]
+    cure_tags:              ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
+
+  - text: "The cured meat was left in the barrel two days."
+    tokens: ["The", "cured", "meat", "was", "left", "in", "the", "barrel", "two", "days", "."]
+    food_entity_tags:       ["O", "O", "B-FOOD_LU", "O", "O", "O", "O", "O", "O", "O", "O"]
+    food_attributes_tags:   ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
+    descriptor_tags:        ["O", "B-DESCR_Neutral", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
+    cooking_creation_tags:  ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
+    preserving_tags:        ["O", "B-PR_LU", "B-PR_Food_Patient", "O", "O", "O", "B-PR_Medium", "I-PR_Medium", "O", "O", "O"]
+    cure_tags:              ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
+
+  - text: "We enjoyed planked fish."
+    tokens: ["We", "enjoyed", "planked", "fish", "."]
+    food_entity_tags:       ["O", "O", "O", "B-FOOD_LU", "O"]
+    food_attributes_tags:   ["O", "O", "O", "O", "O"]
+    descriptor_tags:        ["O", "O", "B-DESCR_Neutral", "O", "O"]
+    cooking_creation_tags:  ["O", "O", "B-COOKING_CREATION_LU", "B-COOKING_CREATION_Food_Material", "O"]
+    preserving_tags:        ["O", "O", "O", "O", "O"]
+    cure_tags:              ["O", "O", "O", "O", "O"]
+
+  - text: "Add the boiling water to the beaten egg."
+    tokens: ["Add", "the", "boiling", "water", "to", "the", "beaten", "egg", "."]
+    food_entity_tags:       ["O", "O", "O", "B-FOOD_LU", "O", "O", "O", "B-FOOD_LU", "O"]
+    food_attributes_tags:   ["O", "O", "O", "O", "O", "O", "O", "O", "O"]
+    descriptor_tags:        ["O", "O", "B-DESCR_Neutral", "O", "O", "O", "B-DESCR_Neutral", "O", "O"]
+    cooking_creation_tags:  ["O", "O", "B-COOKING_CREATION_LU", "B-COOKING_CREATION_Food_Material", "O", "O", "B-COOKING_CREATION_LU", "B-COOKING_CREATION_Food_Material", "O"]
+    preserving_tags:        ["O", "O", "O", "O", "O", "O", "O", "O", "O"]
+    cure_tags:              ["O", "O", "O", "O", "O", "O", "O", "O", "O"]
+
+  - text: "Honey is good for a sore throat in children."
+    tokens: ["Honey", "is", "good", "for", "a", "sore", "throat", "in", "children", "."]
+    food_entity_tags:       ["B-FOOD_LU", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
+    food_attributes_tags:   ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
+    descriptor_tags:        ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
+    cooking_creation_tags:  ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
+    preserving_tags:        ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
+    cure_tags:              ["B-CURE_Food_Treatment", "O", "B-CURE_LU", "I-CURE_LU", "O", "B-CURE_Affliction", "I-CURE_Affliction|B-CURE_Body_Part", "O", "B-CURE_Patient", "O"]
+
+  - text: "Ginger tea alleviates pain in the stomach of people who suffer from gout."
+    tokens: ["Ginger", "tea", "alleviates", "pain", "in", "the", "stomach", "of", "people", "who", "suffer", "from", "gout", "."]
+    food_entity_tags:       ["B-FOOD_LU", "I-FOOD_LU", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
+    food_attributes_tags:   ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
+    descriptor_tags:        ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
+    cooking_creation_tags:  ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
+    preserving_tags:        ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
+    cure_tags:              ["B-CURE_Food_Treatment", "I-CURE_Food_Treatment", "B-CURE_LU", "B-CURE_Affliction", "I-CURE_Affliction", "I-CURE_Affliction", "I-CURE_Affliction|B-CURE_Body_Part", "O", "B-CURE_Patient", "I-CURE_Patient", "I-CURE_Patient", "I-CURE_Patient", "I-CURE_Patient|B-CURE_Affliction", "O"]
+
+# ---------------------------------------------------------------------------
+# Frame groups (optional). Splits annotation into multiple smaller calls
+# per sentence instead of one call covering all 7 frames at once -- useful
+# when a model over-generates entities on the full schema (a lighter,
+# more focused prompt per call often improves precision). Each call gets
+# its own system prompt built ONLY from the frames in its group, via
+# Schema.subset().
+#
+# Current setup: FOOD paired with exactly one other frame per call (six
+# calls per sentence total). FOOD is included in every group because
+# every other frame's core annotation move is "re-annotate what's
+# already FOOD_LU" -- giving the model the FOOD_LU baseline alongside
+# each frame keeps that instruction meaningful even in isolation.
+#
+# NOTE: splitting INGREDIENT and COOKING_CREATION into separate calls
+# means they no longer see each other's definition in the same prompt.
+# The boundary rule between COOKING_CREATION_Food_Material and
+# INGR_Material_LU has been made self-contained in each frame's own
+# `note` below (restated inline) specifically so it still works when
+# split apart -- check those notes if you group them back together and
+# want to trim the now-redundant restatement.
+#
+# If this key is omitted or empty, call_llms.py / call_llms_batch.py fall
+# back to ONE call covering every frame at once.
+groups:
+  - [FOOD, DESCRIPTOR]
+  - [FOOD, INGREDIENT]
+  - [FOOD, COOKING_CREATION]
+  - [FOOD, PRESERVING]
+  - [FOOD, CURE]
+  - [FOOD, INGESTION]
+
+# ---------------------------------------------------------------------------
+# Models to query. `provider` selects the adapter in call_llms.py.
+# API keys are read from environment variables, never put them here.
+# ---------------------------------------------------------------------------
+models:
+  - name: claude-opus-5
+    provider: anthropic
+    temperature: 0
+  - name: claude-fable-5-1
+    provider: anthropic
+    temperature: 0
+  - name: gpt-5.5
+    provider: openai
+
+max_retries: 2
