@@ -1,6 +1,6 @@
 ## Licenses
 
-**Our resources.** The annotations, LLM outputs, and models in this repository are released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) (see `LICENSE`), while prompts and code under [MIT] (https://mit-license.org/).
+**Our resources.** The annotations, LLM outputs, and models in this repository are released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) (see `LICENSE`), while prompts and code under [MIT](https://mit-license.org/).
 
 **Source texts.**
 * English: [Project Gutenberg](https://www.gutenberg.org) texts in the public domain, used according to the Project Gutenberg terms of use.
