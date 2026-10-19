@@ -10,7 +10,6 @@
 
 | Resource | Use | License |
 |---|---|---|
-| Food lexicon (van Erp et al., 2018) | Dutch candidate passages | *[to be filled in]* |
 | [roberta-base-food-ner](https://huggingface.co/carolanderson/roberta-base-food-ner) | corpus selection | MIT |
 | [BERT-base cased](https://huggingface.co/google-bert/bert-base-cased), [mBERT](https://huggingface.co/google-bert/bert-base-multilingual-cased) | encoders | Apache 2.0 |
 | [MacBERTh](https://huggingface.co/emanjavacas/MacBERTh), [GysBERT](https://huggingface.co/emanjavacas/GysBERT) | encoders | MIT |
