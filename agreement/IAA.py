@@ -28,6 +28,7 @@ import collections
 import glob
 import os
 import re
+from krippendorff_alpha import compute_alpha
 
 # label prefix -> frame (checked in order; FOOD_LU before the other FOOD_ labels)
 FRAME_OF = [
