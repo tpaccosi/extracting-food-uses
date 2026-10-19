@@ -38,13 +38,6 @@ Useful options: `--folds 1 3` (run only some folds), `--skip-existing` (resume a
 `--keep-checkpoints` (keep the trained models in `fold_k/ckpt/`; by default they are deleted
 after prediction), `--oracle` (no training, see below).
 
-## `--oracle`: upper bound of the multiclass approach
-Predicts the gold class whenever that tag combination occurs in the fold's training set,
-and `O` otherwise. It measures the loss due **only** to combinations never seen in training;
-no multiclass model can exceed it. On our gold standard it reaches 97.9 micro-F1 and
-96.9 macro-F1, with `DESCR_Negative` (87) and `COOKING_CREATION_Food_Product` (87) as the
-most affected labels. It also allows testing the whole pipeline without a GPU.
-
 ## Output (`cv5_hf_mc/`)
 Same format as `cv5/`: `folds.json`, `fold_k/{test,pred}.bio.tsv`, `fold_k/run.json`
 (configuration, number of classes, best dev F1, test F1), `cv_summary.tsv`,
