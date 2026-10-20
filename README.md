@@ -29,9 +29,15 @@ data/english/
   gold_pilot.tsv          pilot sentences annotated from scratch
   gpt_output_raw.tsv      uncorrected GPT-5.5 pre-annotations of the corrected portion
   llm results/            outputs of the seven LLMs compared as pre-annotators
-data/dutch/               Dutch data
+data/dutch/
+  food_snippets_kwic_sample.csv   315-row sample of the manual KWIC batch that seeded the cascade's few-shot prompts
+  kwic_inputs.jsonl        3,118 KWIC records (separate INCEpTION batch), input to GijsBERT training
+  gijsbert_train.jsonl     2,690 rows, Step B classifier training export (Dutch-only, English calibration rows filtered)
+  gijsbert_eval.jsonl      157 rows, held-out eval split
+  inception_nl_v2_iaa_agreed_gold.csv   394 IAA-agreed rows (curated, not representative — see data/dutch/README.md)
 prompts/english/          two-stage prompting pipeline (food entities, then one frame per prompt)
-prompts/dutch/            prompts for the Dutch cascade
+prompts/dutch/            prompts for the Dutch cascade (Step A entity validation, Step B macro-frame
+                          classification, Step C per-frame qualia extraction) with Dutch few-shot examples
 agreement/                inter-annotator agreement (Krippendorff's alpha, IAA.py)
 multitask_setting/        MaChAmp multi-task models, 5-fold CV, lexical baseline
 multiclass_real/          HuggingFace multiclass models (one joint label per token)
