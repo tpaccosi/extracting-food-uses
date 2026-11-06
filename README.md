@@ -58,6 +58,37 @@ the     O            O                O           O                 O           
 eyes    O            O                O           O                 O           I-CURE_Affliction|B-CURE_Body_Part
 ```
 
+## Models used 
+
+### Encoder models (fine-tuned)
+
+| Model | Parameters |
+|-------|------------|
+| BERT-base | ~110M |
+| MacBERTh | ~110M |
+| BERTje | ~110M |
+| GysBERT | ~110M |
+| mBERT | ~180M |
+
+BERT-base, MacBERTh, BERTje and GysBERT are base-size encoders.
+
+### Open-weight LLMs (pre-annotators)
+
+| Model | Total parameters | Active parameters | Access |
+|-------|------------------|-------------------|--------|
+| Qwen3-235B-A22B | 235B | 22B | Hugging Face Inference Providers |
+| DeepSeek-V4-Flash | 284B | 13B | Hugging Face Inference Providers |
+| Llama-4-Maverick-17B-128E | ~400B | 17B | Hugging Face Inference Providers |
+| Qwen2.5-Coder 7B | 7B | Local, via [Ollama](https://ollama.com) |
+| Qwen2.5-Coder 32B | 32B | Local, via [Ollama](https://ollama.com) |
+
+### Commercial models
+
+| Model family | Parameters |
+|--------------|------------|
+| Claude (Anthropic) | Not disclosed |
+| GPT (OpenAI) | Not disclosed |
+
 ## Quick start
 
 ```bash
