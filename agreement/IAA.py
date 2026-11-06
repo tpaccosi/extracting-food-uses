@@ -3,8 +3,7 @@
 Inter-annotator agreement (Krippendorff's alpha) for WebAnno TSV 3.3 exports
 with a single span layer (custom.Span|label), overall and per frame.
 
-Input: one or more folders, each containing exactly two annotator files
-(e.g. 1792419489086_teresa.tsv and 1792419489086_Gauri_B.tsv). The two files
+Input: one or more folders, each containing exactly two annotator files. The two files
 of a folder must share the same tokenisation (checked). Results are given per
 folder and pooled over all folders.
 
