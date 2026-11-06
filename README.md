@@ -70,8 +70,6 @@ eyes    O            O                O           O                 O           
 | GysBERT | ~110M |
 | mBERT | ~180M |
 
-BERT-base, MacBERTh, BERTje and GysBERT are base-size encoders.
-
 ### Open-weight LLMs (pre-annotators)
 
 | Model | Total parameters | Active parameters | Access |
